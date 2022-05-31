@@ -182,14 +182,30 @@ export const ListTripTable = (props) => {
     });
   };
 
+  const countTotalSeat = (idVehicle) => {
+    let total = 0;
+
+    for (let v of listVehicle) {
+      if (idVehicle === v._id) {
+        v.wagons.map((i) => {
+          if (i == "nmdh" || i == "ncdh") {
+            total += 64;
+          } else if (i == "nk4dh") total += 28;
+          else if (i == "nk6dh") total += 42;
+        });
+      }
+    }
+    return total;
+  };
+
   const renderTrips = (trips) => {
     let myTrips = [];
     for (let trip of trips) {
       myTrips.push(
         <tr>
           <td>{new Date(trip.startDate).toLocaleDateString("vi-VN")}</td>
-          <td>{trip.idVehicle.lisensePlate}</td>
-          <td>{trip.idVehicle.totalSeat}</td>
+          <td>{trip.idVehicle.idTrain}</td>
+          <td>{countTotalSeat(trip.idVehicle._id)}</td>
           <td>{findPriceOfTrip(trip._id)}</td>
           <td>{getStatus(trip)}</td>
           <td>
@@ -314,7 +330,7 @@ export const ListTripTable = (props) => {
                   setTrip({
                     ...trip,
                     idVehicle: e.target.value,
-                    totalSeat: findTotalSeatOfVehicle(e.target.value),
+                    totalSeat: countTotalSeat(e.target.value),
                   });
                   checkEditData();
                 }}

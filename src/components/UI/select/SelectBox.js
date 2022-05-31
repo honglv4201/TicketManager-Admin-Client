@@ -17,9 +17,24 @@ export const SelectBox = (props) => {
         <option></option>
         {props.list.map((option) => {
           if (props.type === "VehicleSelect") {
+            const countTotalSeat = (idVehicle) => {
+              let total = 0;
+
+              for (let v of props.list) {
+                if (idVehicle === v._id) {
+                  v.wagons.map((i) => {
+                    if (i == "nmdh" || i == "ncdh") {
+                      total += 64;
+                    } else if (i == "nk4dh") total += 28;
+                    else if (i == "nk6dh") total += 42;
+                  });
+                }
+              }
+              return total;
+            };
             return (
               <option key={option._id} value={option._id}>
-                BS:{option.quality} - SG:{option.totalSeat}
+                Số hiệu: {option.idTrain} - Số ghế: {countTotalSeat(option._id)}
               </option>
             );
           } else if (props.type === "VehicleSelect_BS") {
@@ -64,7 +79,7 @@ export const SelectBox = (props) => {
             );
           } else {
             return (
-              <option key={option._id} value={option.name}>
+              <option key={option._id} value={option.indexCity}>
                 {option.name}
               </option>
             );

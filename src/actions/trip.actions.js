@@ -7,7 +7,7 @@ const TripAction = {
     return async (dispatch) => {
       dispatch({ type: tripConstants.ADD_NEW_TRIP_REQUEST });
 
-      const res = await TripApi.create();
+      const res = await TripApi.create(form);
 
       if (res.status === 200) {
         dispatch(TicketAction.addTicketOfTrip({ ...form, _id: res.data._id }));

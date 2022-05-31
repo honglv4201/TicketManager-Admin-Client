@@ -1,5 +1,6 @@
 import TicketApi from "../api/ticket";
 import { ticketConstants } from "./constants";
+import wagonTicketAction from "./wagonTicket.action";
 
 const TicketAction = {
   getAllTickets: () => {
@@ -27,13 +28,18 @@ const TicketAction = {
     return async (dispatch) => {
       var newForm = { idTrip: form._id, price: form.price };
 
-      newForm.quantity = Array(form.totalSeat).fill(false);
-
       dispatch({ type: ticketConstants.ADD_NEW_TICKET_REQUEST });
 
       const res = await TicketApi.create(newForm);
 
       if (res.status === 200) {
+        dispatch(
+          wagonTicketAction.addWagonTicket({
+            ...form,
+            _id: res.data._id,
+          })
+        );
+
         dispatch({
           type: ticketConstants.ADD_NEW_TICKET_SUCCESS,
           payload: { ticket: res.data },
