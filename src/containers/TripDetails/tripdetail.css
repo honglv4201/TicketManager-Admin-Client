@@ -1,0 +1,191 @@
+.trip-detail__wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+.trip-detail__info {
+  min-width: 300px;
+  display: flex;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+.trip-detail__info .info {
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  padding: 25px 35px;
+  position: relative;
+  padding-left: 110px;
+  margin-left: -100px;
+}
+.trip-detail__info .img-bus {
+  width: 350px;
+  margin-right: 40px;
+  margin-left: 10px;
+}
+.trip-detail__info .img-bus img {
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.quantity-info {
+  display: flex;
+  font-size: 1.8rem;
+  margin-top: 30px;
+}
+.quantity-info .chair-number {
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+}
+.quantity-info .chair-number .quantity {
+  font-size: 2.2rem;
+  margin-left: 10px;
+}
+.quantity-info i {
+  margin-right: 10px;
+  font-size: 2rem;
+}
+.quantity-info span {
+  font-size: 1.8rem;
+}
+.quantity-info .type {
+  text-transform: lowercase;
+  font-weight: 600;
+  background-color: rgb(231, 231, 231);
+  padding: 6px 10px;
+  font-size: 1.4rem;
+  margin-left: 10px;
+  border-radius: var(--border-radius-small);
+  color: var(--text-color);
+}
+
+.trip-detail__info .enterprise {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.trip-detail__info .detail-info h2 {
+  font-size: 1.7rem;
+}
+
+/* TRIP LIST CARD */
+.export-to-excel__wrapper {
+  position: absolute;
+  right: 20px;
+  top: 90px;
+}
+.list-ticket {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: rgba(236, 236, 236, 0.329);
+  padding-top: 25px;
+  border-radius: 10px;
+}
+
+.list-ticket .card1 {
+  background-color: rgb(255, 255, 255);
+  color: var(--text-color);
+  min-width: 270px;
+  margin-bottom: 30px;
+  box-shadow: 0px 1px 3px rgb(211, 211, 211);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+.list-ticket .card1.unknow {
+  background-color: rgb(255, 226, 224);
+}
+.list-ticket .card1:hover {
+  box-shadow: 0px 0px 5px rgb(0, 150, 187);
+}
+.list-ticket .card1-body {
+  padding: 20px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+}
+.list-ticket .card1-body .customer-name {
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+
+  color: rgb(0, 150, 187);
+}
+.list-ticket .offline-customer-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-ticket .card1-body .customer-number {
+  display: inline;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+  margin-top: -10px;
+  padding: 5px 10px;
+  background-color: white;
+  border: 1px solid rgb(0, 150, 187);
+  color: rgb(0, 150, 187);
+  width: fit-content;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+.list-ticket .card1-header {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255),
+    rgb(255, 255, 255)
+  );
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.list-ticket .card1-header .number-chair {
+  padding: 0px;
+}
+.list-ticket .card1.selected {
+  /* background-color: rgb(236, 236, 236); */
+  background-color: rgb(238, 250, 255);
+}
+.list-ticket .card1.offline-paid {
+  background-color: rgb(230, 255, 236);
+}
+.list-ticket .card1-header .status {
+  height: fit-content;
+  font-size: 1.2rem;
+  padding: 6px 10px;
+  color: rgb(121, 121, 121);
+  border: 1px solid rgb(104, 94, 94);
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+}
+.list-ticket .card1-header .status.confirm {
+  color: rgb(0, 226, 75);
+  border: 1px solid rgb(0, 226, 75);
+}
+.list-ticket .card1-header .status.paid {
+  background-color: #50c878;
+  color: #fff;
+  border: 1px solid transparent;
+}
+.list-ticket .btn-add-ticket {
+  padding: 10px 16px;
+  margin-top: 10px;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgb(0, 150, 187);
+  margin-bottom: 20px;
+  background-color: rgb(243, 243, 243);
+}
+.list-ticket .btn-add-ticket:hover {
+  cursor: pointer;
+  background-color: rgb(0, 150, 187);
+  color: white;
+}

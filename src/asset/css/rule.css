@@ -1,0 +1,121 @@
+/* 
+  .container{
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 450px;
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  .leftBox{
+    position: absolute;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 350px;
+    background: #fff;
+    height: 100%;
+    border-radius: 25px;
+    box-shadow: 9px 1px 6px 3px rgba(0, 0, 0, 0.2);
+  }
+  .rightBox{
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 100%;
+    background: rgba(251, 251, 251, 0.2);
+    border-radius: 25px;
+    box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.2);
+  }
+  h1{
+    padding: 10px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 24px;
+  }
+  input[type="text"], input[type="number"], input[type="email"]{
+    margin-bottom: 60px;
+    padding: 10px;
+    width: 265px;
+    height: 30px;
+    border: none;
+    color: #000;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+  }
+  input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus{
+    border-bottom: 1px solid #16a085;
+    color: #16a085;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+  }
+  .button{
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+    height: 35px;
+    background: #16a085;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.1s ease-in-out;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  .button:hover, .button:focus{
+    cursor: pointer;
+    opacity: 0.9;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    transition: all 0.1s ease-in-out;
+    outline: none;
+  }
+  .button:active{
+    opacity: 1;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+    transition: all 0.1s ease-in-out;
+  }
+  .rightBox .social{
+    padding: 50px 10px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .rightBox .socialin{
+    margin-bottom: 45px;
+    width: 230px;
+    height: 44px;
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+  .socialin:hover, .socialin:focus{
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease-in-out;
+    outline: none;
+  }
+  .socialin:active{
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+    transition: all 0.2 ease-in-out;
+    outline: none;
+  }
+  .socialin.label{
+    background: #265fdb;
+  }
+   */

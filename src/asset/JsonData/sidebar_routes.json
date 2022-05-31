@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "display_name": "Trang chủ",
+    "route": "/dashboard",
+    "icon": "bx bx-category-alt"
+  },
+
+  {
+    "id": 2,
+    "display_name": "Nhà Xe",
+    "route": "/enterprises",
+    "icon": "bx bx-building-house"
+  },
+  {
+    "id": 3,
+    "display_name": "Tuyến đường",
+    "route": "/routes",
+    "icon": "bx bx-bus"
+  },
+
+  {
+    "id": 4,
+    "display_name": "Người dùng",
+    "route": "/user",
+    "icon": "far fa-user"
+  },
+
+  {
+    "id": 5,
+    "display_name": "Thống kê",
+    "route": "/analytics",
+    "icon": "bx bx-bar-chart-alt"
+  },
+
+  {
+    "id": 6,
+    "display_name": "Cài đặt",
+    "route": "/settings",
+    "icon": "bx bx-cog"
+  }
+]

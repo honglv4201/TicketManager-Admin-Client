@@ -1,0 +1,209 @@
+.card__header {
+  display: flex;
+  align-items: center;
+}
+.card__header h3 {
+  margin-top: 5px;
+}
+.card__header > button {
+  margin-left: 20px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+  background-color: #fff;
+  font-size: 1.4rem;
+}
+.card__header > button:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}
+.card__header > .ui-search {
+  margin-left: 15px;
+}
+.card__header > .ui-search > input {
+  padding: 6px 12px;
+  border: 2px solid #e5e5e5;
+  font-size: 1.4rem;
+  border-radius: 5px;
+}
+.card__header > .ui-search > input:focus {
+  border: 2px solid #c7c7c7;
+}
+.no-result {
+  padding-left: 20px;
+  padding-top: 100px !important;
+  text-align: center;
+}
+
+/* table */
+.table-container {
+  min-width: 400px;
+}
+.right-content-fixsize {
+  margin-top: 40px;
+}
+table {
+  width: 100%;
+  min-width: 400px;
+  border-spacing: 0;
+}
+
+.custom-table thead {
+  background-color: var(--second-bg);
+  border-radius: 10px;
+}
+.custom-table tr {
+  text-align: left;
+  border-bottom: 2px solid var(--second-bg);
+}
+
+.custom-table th,
+.custom-table td {
+  text-transform: capitalize;
+  padding: 20px;
+  font-size: 1.5rem;
+  padding-left: 25px;
+}
+
+tbody tr:hover {
+  background-color: var(--main-color);
+  color: var(--text-white);
+  padding: 0 10px;
+}
+tbody.detail-tab tr:hover {
+  background-color: var(--second-bg);
+  color: var(--text-color);
+  padding: 0 10px;
+}
+
+/* custom btn */
+td > button {
+  background-color: var(--white-color);
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+  padding: 8px 10px;
+  border-radius: var(--border-radius-btn-td);
+}
+td > button ~ button {
+  margin-left: 15px;
+}
+td > button:hover {
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+
+td > button.delete {
+  background-color: var(--main-color-red);
+  background-color: var(--white-color);
+  color: var(--main-color-red);
+  border: 2px solid var(--main-color-red);
+}
+td > button.delete:hover {
+  background-color: var(--main-color-red);
+  color: var(--white-color);
+}
+td button.detail {
+  margin-left: 15px;
+  border: 2px solid rgb(192, 192, 192);
+  background-color: var(--white-color);
+  color: var(--text-color);
+  padding: 8px 10px;
+  border-radius: var(--border-radius-btn-td);
+}
+td button.detail:hover {
+  background-color: rgb(192, 192, 192);
+  color: #fff;
+}
+
+/* add route */
+.add-modal {
+  width: 500px;
+  min-height: 300px;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius);
+  padding: 30px 40px;
+  margin-bottom: 50px;
+}
+.add-modal.active {
+  animation: openModal 0.3s var(--transition-cubic);
+}
+
+.add-modal__wrapper {
+  display: none;
+  place-content: center;
+  background-color: var(--color-wrapper-modal);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1111;
+}
+.add-modal__wrapper .input-enterprise-name {
+}
+@keyframes openModal {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.add-modal__wrapper.active {
+  display: grid;
+}
+
+.add-modal__header {
+  position: relative;
+  margin-bottom: 50px;
+  color: var(--main-color);
+  font-weight: 600;
+  font-size: 1.7rem;
+  opacity: 0.9;
+}
+.add-modal__header::after {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: var(--third-bg-light);
+}
+
+.add-modal__footer {
+  display: flex;
+  margin-top: 55px;
+  justify-content: end;
+}
+.add-modal__footer button {
+  padding: 10px 16px;
+  margin-left: 20px;
+  border-radius: var(--border-radius-small);
+}
+.add-modal__footer .btn-save {
+  background-color: var(--main-color);
+  color: var(--text-white);
+}
+.add-modal__footer button:hover {
+  opacity: 0.8;
+}
+.add-modal__footer .btn-save:disabled {
+  background-color: var(--third-bg-light);
+  color: rgb(185, 185, 185);
+}
+.add-modal__footer .btn-save:disabled:hover {
+  opacity: 1;
+}
+
+/* ============ SPECIFIC CSS ============ */
+
+/* LIST USER CSS */
+h1.manager-user__title {
+  margin-left: 20px;
+  font-size: 2.2rem;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+/* END: LIST USER CSS */

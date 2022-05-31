@@ -1,0 +1,185 @@
+.rulepage.container {
+  margin-top: 50px;
+  width: 100%;
+  height: 750px;
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: var(--box-shadow);
+  margin-left: 10px;
+  padding-left: 50px;
+  padding-top: 10px;
+}
+
+.rulepage.container .leftBox {
+  box-sizing: border-box;
+  padding: 40px;
+  width: 350px;
+  background: #fff;
+  height: 100%;
+  border-radius: 25px;
+}
+.rulepage.container .rightBox {
+  background: rgba(251, 251, 251, 0.2);
+  border-radius: 25px;
+}
+.rulepage.container h1 {
+  padding: 20px 50px;
+
+  text-align: left;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 2.5rem;
+  opacity: 0.9;
+}
+.rulepage.container h2.session-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+/* .rulepage.container input[type="text"],
+.rulepage.container input[type="number"],
+.rulepage.container input[type="email"] {
+  margin-bottom: 60px;
+  padding: 10px;
+  width: 265px;
+  height: 30px;
+  border: none;
+  color: #000;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+} */
+/* .rulepage.container input[type="text"]:focus,
+.rulepage.container input[type="number"]:focus,
+.rulepage.container input[type="password"]:focus {
+  border-bottom: 1px solid #16a085;
+  color: #16a085;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+} */
+.rulepage.container .button {
+  padding: 12px 30px;
+  display: block;
+  font-size: 1.6rem;
+  background: #fff;
+  border-radius: 10px;
+  color: rgba(204, 204, 204, 0.836);
+  text-transform: none;
+  transition: all 0.1s ease;
+  border: none;
+  box-shadow: 0px 0px 10px rgba(85, 85, 85, 0.1);
+  margin-top: 14px;
+}
+.rulepage.container .button.active {
+  color: var(--main-color);
+}
+.rulepage.container .button:hover {
+  cursor: initial;
+}
+.rulepage.container .button:active {
+  box-shadow: 0px 0px 10px rgba(85, 85, 85, 0.1);
+}
+.rulepage.container .button.active:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+  transition: all 0.1s ease-in-out;
+  outline: none;
+}
+
+.rulepage.container .rightBox .social {
+  padding: 50px 10px;
+  font-size: 15px;
+  font-weight: 600;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+.rulepage.container .rightBox .socialin {
+  margin-bottom: 45px;
+  width: 230px;
+  height: 44px;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.rulepage.container .socialin:hover,
+.rulepage.container .socialin:focus {
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+.rulepage.container .socialin:active {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+  transition: all 0.2 ease-in-out;
+  outline: none;
+}
+.rulepage.container .socialin.label {
+  background: #265fdb;
+}
+
+/* new for setting */
+.rulepage.container .regulation,
+.rulepage.container .account {
+  margin: 10px 0 10px 50px;
+}
+.rulepage.container input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.rulepage.container .regulation input {
+  border: 2px solid rgb(240, 240, 240);
+  padding: 10px 20px;
+  margin: 10px 25px;
+  border-radius: 5px;
+  width: 100px;
+  text-align: center;
+}
+.account___wrapper {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 30px;
+  margin-left: -5px;
+  margin-bottom: 30px;
+  background-color: rgba(235, 235, 235, 0.363);
+  width: 330px;
+}
+.account___wrapper .account-name {
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  margin-bottom: 8px;
+}
+.account___wrapper .txt-notyou,
+.account___wrapper a {
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+.account___wrapper a {
+  margin-left: 9px;
+  text-decoration: underline;
+}
+.account___wrapper .image-avatar {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+.account___wrapper .image-avatar img {
+  width: 100%;
+  border-radius: 50%;
+  height: 100%;
+  object-fit: cover;
+}
