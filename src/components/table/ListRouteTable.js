@@ -21,9 +21,10 @@ export const ListRouteTable = (props) => {
   const getListEnterprise = () => {
     let list = [];
     for (let i = 0; i < prop_listEnterprise.enterprises.length; i++) {
-      if (prop_listEnterprise.enterprises[i].isActive === "yes") {
-        list.push(prop_listEnterprise.enterprises[i]);
-      }
+      // if (prop_listEnterprise.enterprises[i].isActive === "yes") {
+      //   list.push(prop_listEnterprise.enterprises[i]);
+      // }
+      list.push(prop_listEnterprise.enterprises[i]);
     }
     return list;
   };
@@ -133,8 +134,16 @@ export const ListRouteTable = (props) => {
   };
   const findEnterpriseName = (idEnterprise) => {
     for (let ent of getListEnterprise()) {
-      if (ent._id === idEnterprise) return ent.name;
+      if (ent._id === idEnterprise) {
+        return ent.name;
+      }
     }
+    return "";
+  };
+
+  const returnNameLocation = (indexLocation) => {
+    if (indexLocation == 0) return "Hà Nội";
+    else if (indexLocation == 168) return "Sài Gòn";
     return "";
   };
 
@@ -158,8 +167,8 @@ export const ListRouteTable = (props) => {
       if (route.isActive === "yes") {
         myRoutes.push(
           <tr>
-            <td>{route.startLocation}</td>
-            <td>{route.endLocation}</td>
+            <td>{returnNameLocation(route.startLocation)}</td>
+            <td>{returnNameLocation(route.endLocation)}</td>
             <td>{findEnterpriseName(route.idEnterprise)}</td>
             <td>{route.startTime}</td>
             <td>{route.totalTime}</td>
@@ -185,7 +194,7 @@ export const ListRouteTable = (props) => {
               <Link
                 to={
                   window.location.pathname === "/routes"
-                    ? `/routes/${route._id}/informations`
+                    ? `/routes/${route._id}`
                     : `/enterprises/${route.idEnterprise}/informations/${route._id}/routeinfo`
                 }
               >

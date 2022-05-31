@@ -6,6 +6,8 @@ import { ListTripTable } from "../../components/table/ListTripTable";
 import busImg from "../../asset/img/bus.png";
 import TicketAction from "../../actions/ticket.actions";
 import RouteAction from "../../actions/route.actions";
+import { useParams } from "react-router-dom";
+
 /**
  * @author
  * @function RouteDetails
@@ -27,14 +29,12 @@ export const RouteDetails = (props) => {
     dispatch(RouteAction.getAllRoutes());
     dispatch(VehicleAction.getAllVehicles());
   }, []);
-
+  const { routeId } = useParams();
   const loadRouteDetails = () => {
-    const { routeId, enterpriseId } = props.match.params;
-
+    //  const { routeId } = props.match.params;
     const payload = {
       params: {
         routeId,
-        enterpriseId,
       },
     };
     dispatch(RouteAction.getRouteDetailssById(payload));
@@ -61,6 +61,12 @@ export const RouteDetails = (props) => {
     }
   };
 
+  const returnNameLocation = (indexLocation) => {
+    if (indexLocation == 0) return "Hà Nội";
+    else if (indexLocation == 168) return "Sài Gòn";
+    return "";
+  };
+
   return (
     <Layout sidebar>
       <div className="enterprise-info">
@@ -70,10 +76,11 @@ export const RouteDetails = (props) => {
         <div className="info">
           <h1>Nhà Xe: {state_routeDetails.route.idEnterprise.name}</h1>
           <p className="start-locate">
-            Bắt đầu: {state_routeDetails.route.startLocation}
+            Bắt đầu:{" "}
+            {returnNameLocation(state_routeDetails.route.startLocation)}
           </p>
           <p className="end-locate">
-            Kết thúc: {state_routeDetails.route.endLocation}
+            Kết thúc: {returnNameLocation(state_routeDetails.route.endLocation)}
           </p>
           <p className="start-time">
             Thời gian xuất phát: {state_routeDetails.route.startTime}

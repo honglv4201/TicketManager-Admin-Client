@@ -9,8 +9,7 @@ const EnterpriseAction = {
       const res = await EnterpriseApi.getAllEnterprises();
 
       if (res.status === 200) {
-        const { enterpriseList } = res.data;
-
+        const enterpriseList = res.data;
         dispatch({
           type: enterpriseConstants.GET_ALL_ENTERPRISES_SUCCESS,
           payload: { enterprises: enterpriseList },

@@ -5,6 +5,7 @@ import { Layout } from "../../components/Layout";
 import { ListTicketOfTrip } from "../../components/list/ListTicketOfTrip";
 import "./tripdetail.css";
 import busImg from "../../asset/img/bus1.jpg";
+import { useParams } from "react-router-dom";
 /**
  * @author
  * @function TripDetails
@@ -17,9 +18,9 @@ export const TripDetails = (props) => {
   useEffect(() => {
     loadTripDetails();
   }, []);
-
+  const { tripId } = useParams();
   const loadTripDetails = () => {
-    const { tripId } = props.match.params;
+    // const { tripId } = props.match.params;
     const payload = {
       params: {
         tripId,

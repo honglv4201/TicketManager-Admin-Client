@@ -122,38 +122,38 @@ export const ListEnterpriseTable = (props) => {
   const renderEnterprises = (enterprises) => {
     let myEnterprises = [];
     for (let enterprise of enterprises) {
-      if (enterprise.isActive === "yes") {
-        myEnterprises.push(
-          <tr>
-            <td>{enterprise.name}</td>
-            <td>{enterprise.address}</td>
-            <td>{enterprise.hotline}</td>
-            <td>
-              <button
-                className="edit"
-                color="warning"
-                onClick={() => {
-                  handleModalShow("Edit", enterprise);
-                }}
-              >
-                <i class="far fa-edit"></i>
+      // if (enterprise.isActive === "yes") {
+      myEnterprises.push(
+        <tr>
+          <td>{enterprise.name}</td>
+          <td>{enterprise.address}</td>
+          <td>{enterprise.hotline}</td>
+          <td>
+            <button
+              className="edit"
+              color="warning"
+              onClick={() => {
+                handleModalShow("Edit", enterprise);
+              }}
+            >
+              <i class="far fa-edit"></i>
+            </button>
+            <button
+              className="delete"
+              color="danger"
+              onClick={() => delEnterprise(enterprise)}
+            >
+              <i class="far fa-trash-alt"></i>
+            </button>
+            <Link to={`/enterprises/${enterprise._id}`}>
+              <button className="detail" onClick={() => {}}>
+                Chi tiết
               </button>
-              <button
-                className="delete"
-                color="danger"
-                onClick={() => delEnterprise(enterprise)}
-              >
-                <i class="far fa-trash-alt"></i>
-              </button>
-              <Link to={`enterprises/${enterprise._id}/informations`}>
-                <button className="detail" onClick={() => {}}>
-                  Chi tiết
-                </button>
-              </Link>
-            </td>
-          </tr>
-        );
-      }
+            </Link>
+          </td>
+        </tr>
+      );
+      // }
     }
     return myEnterprises;
   };

@@ -8,6 +8,7 @@ import { ListVehicleTable } from "../../components/table/ListVehicleTable";
 import busImg from "../../asset/img/bus.png";
 import CityAction from "../../actions/city.actions";
 import EnterpriseAction from "../../actions/enterprise.actions";
+import { useParams } from "react-router-dom";
 
 /**
  * @author
@@ -22,8 +23,9 @@ export const EnterpriseDetails = (props) => {
     dispatch(CityAction.getAllCities());
   }, []);
 
+  const { enterpriseId } = useParams();
   const loadEnterpriseDetails = () => {
-    const { enterpriseId } = props.match.params;
+    // const { enterpriseId } = props.match.params;
     const payload = {
       params: {
         enterpriseId,
@@ -94,7 +96,6 @@ export const EnterpriseDetails = (props) => {
       setSearchResultsS(enterpriseDetails.steersmans);
     }
   };
-
   return (
     <Layout sidebar>
       <div className="enterprise-info">

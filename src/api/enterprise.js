@@ -2,8 +2,7 @@ import axios from "../helpers/axios";
 
 const EnterpriseApi = {
   getAllEnterprises: async () => {
-    const res = await axios.get(`enterprise`);
-
+    const res = await axios.get(`/enterprise`);
     return res;
   },
 
@@ -30,7 +29,7 @@ const EnterpriseApi = {
   },
 
   getEnterpriseDetailsById: async (enterpriseId) => {
-    const res = await axios.get(`/enterprise/${enterpriseId}/informations`);
+    const res = await axios.get(`/enterprise/${enterpriseId}`);
 
     return res;
   },
