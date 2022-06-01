@@ -21,10 +21,9 @@ export const ListRouteTable = (props) => {
   const getListEnterprise = () => {
     let list = [];
     for (let i = 0; i < prop_listEnterprise.enterprises.length; i++) {
-      // if (prop_listEnterprise.enterprises[i].isActive === "yes") {
-      //   list.push(prop_listEnterprise.enterprises[i]);
-      // }
-      list.push(prop_listEnterprise.enterprises[i]);
+      if (prop_listEnterprise.enterprises[i].isDeleted === "no") {
+        list.push(prop_listEnterprise.enterprises[i]);
+      }
     }
     return list;
   };

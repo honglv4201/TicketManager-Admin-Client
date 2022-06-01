@@ -7,7 +7,7 @@ const EnterpriseApi = {
   },
 
   addEnterprise: async (form) => {
-    const res = await axios.post(`/enterprise/create`, {
+    const res = await axios.post(`/enterprise/`, {
       ...form,
     });
 

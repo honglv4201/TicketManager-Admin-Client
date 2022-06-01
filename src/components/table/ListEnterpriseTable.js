@@ -24,7 +24,7 @@ export const ListEnterpriseTable = (props) => {
       _id: "",
       name: "",
       address: "",
-      isActive: "yes",
+      isDeleted: "no",
       hotline: "",
     };
   };
@@ -105,7 +105,7 @@ export const ListEnterpriseTable = (props) => {
         swal("Nhà xe đã được xóa thành công!", {
           icon: "success",
         });
-        form.isActive = "no";
+        form.isDeleted = "yes";
         dispatch(EnterpriseAction.editEnterprise(form));
       } else {
         swal("Nhà xe vẫn chưa bị xóa!");
@@ -122,38 +122,38 @@ export const ListEnterpriseTable = (props) => {
   const renderEnterprises = (enterprises) => {
     let myEnterprises = [];
     for (let enterprise of enterprises) {
-      // if (enterprise.isActive === "yes") {
-      myEnterprises.push(
-        <tr>
-          <td>{enterprise.name}</td>
-          <td>{enterprise.address}</td>
-          <td>{enterprise.hotline}</td>
-          <td>
-            <button
-              className="edit"
-              color="warning"
-              onClick={() => {
-                handleModalShow("Edit", enterprise);
-              }}
-            >
-              <i class="far fa-edit"></i>
-            </button>
-            <button
-              className="delete"
-              color="danger"
-              onClick={() => delEnterprise(enterprise)}
-            >
-              <i class="far fa-trash-alt"></i>
-            </button>
-            <Link to={`/enterprises/${enterprise._id}`}>
-              <button className="detail" onClick={() => {}}>
-                Chi tiết
+      if (enterprise.isDeleted === "no") {
+        myEnterprises.push(
+          <tr>
+            <td>{enterprise.name}</td>
+            <td>{enterprise.address}</td>
+            <td>{enterprise.hotline}</td>
+            <td>
+              <button
+                className="edit"
+                color="warning"
+                onClick={() => {
+                  handleModalShow("Edit", enterprise);
+                }}
+              >
+                <i class="far fa-edit"></i>
               </button>
-            </Link>
-          </td>
-        </tr>
-      );
-      // }
+              <button
+                className="delete"
+                color="danger"
+                onClick={() => delEnterprise(enterprise)}
+              >
+                <i class="far fa-trash-alt"></i>
+              </button>
+              <Link to={`/enterprises/${enterprise._id}`}>
+                <button className="detail" onClick={() => {}}>
+                  Chi tiết
+                </button>
+              </Link>
+            </td>
+          </tr>
+        );
+      }
     }
     return myEnterprises;
   };
