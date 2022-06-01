@@ -93,6 +93,7 @@ export const ListSteersmanTable = (props) => {
       createUsername();
     }
     const form = steersman;
+    form.idEnterprise = id_Enterprise;
     if (modalFlag === "Add") {
       delete form._id;
       dispatch(SteersmanAction.addSteersman(form));
