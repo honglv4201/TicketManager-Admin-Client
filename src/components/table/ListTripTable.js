@@ -93,7 +93,14 @@ export const ListTripTable = (props) => {
         button: "OK",
       });
     } else {
-      //dispatch(editRoute(form));
+      dispatch(TripAction.editTrip(form));
+      props.reLoad();
+      swal({
+        title: "Sửa thành công",
+        text: "Bạn đã chuyến xe tuyến đường thành công",
+        icon: "success",
+        button: "OK",
+      });
     }
     setTrip(initTrip);
     props.reLoad();
@@ -201,6 +208,7 @@ export const ListTripTable = (props) => {
   const renderTrips = (trips) => {
     let myTrips = [];
     for (let trip of trips) {
+      console.log("phucs ngu ", trip);
       myTrips.push(
         <tr>
           <td>{new Date(trip.startDate).toLocaleDateString("vi-VN")}</td>
@@ -213,10 +221,12 @@ export const ListTripTable = (props) => {
               className="edit"
               onClick={() => {
                 handleModalShow("Edit", {
+                  _id: trip._id,
                   idVehicle: trip.idVehicle._id,
                   startDate: trip.startDate,
-                  price: findPriceOfTrip(trip._id),
-                  totalSeat: trip.idVehicle.totalSeat,
+                  idRoute: trip.idRoute,
+                  // price: findPriceOfTrip(trip._id),
+                  // totalSeat: trip.idVehicle.totalSeat,
                 });
               }}
               hidden={isDisable(trip)}

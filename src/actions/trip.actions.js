@@ -29,7 +29,21 @@ const TripAction = {
     return async (dispatch) => {
       dispatch({ type: tripConstants.EDIT_TRIP_REQUEST });
 
-      TripApi.edit();
+      console.log(form);
+
+      const res = await TripApi.edit(form);
+
+      if (res.status === 200) {
+        dispatch({
+          type: tripConstants.EDIT_TRIP_SUCCESS,
+          payload: { trip: res.data },
+        });
+      } else {
+        dispatch({
+          type: tripConstants.EDIT_TRIP_FAILURE,
+          payload: { error: res.data.error },
+        });
+      }
     };
   },
 

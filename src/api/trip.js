@@ -9,9 +9,11 @@ const TripApi = {
   },
 
   edit: async (form) => {
-    await axios.put(`/trip/${form._id}`, {
+    const res = await axios.put(`/trip/${form._id}`, {
       ...form,
     });
+
+    return res;
   },
 
   getDetailsById: async (tripId) => {
