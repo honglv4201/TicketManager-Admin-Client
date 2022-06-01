@@ -39,7 +39,7 @@ export const ListVehicleTable = (props) => {
   const initVehicle = () => {
     return {
       _id: "",
-      lisensePlate: "",
+      idTrain: "",
       idEnterprise: "",
       totalSeat: 0,
       quality: "",
@@ -132,9 +132,9 @@ export const ListVehicleTable = (props) => {
     for (let vehicle of vehicles) {
       myVehicles.push(
         <tr>
-          <td>{vehicle.lisensePlate}</td>
-          <td>{vehicle.totalSeat}</td>
-          <td>{vehicle.quality}</td>
+          <td>{vehicle.idTrain}</td>
+          <td>{countTotalSeat(vehicle._id)}</td>
+          <td>{vehicle.typeOfSpeed}</td>
           <td>
             <button
               className="edit"
@@ -163,6 +163,22 @@ export const ListVehicleTable = (props) => {
     props.searchKeyword(inputEl.current.value);
   };
 
+  const countTotalSeat = (idVehicle) => {
+    let total = 0;
+
+    for (let v of prop_listVehicle) {
+      if (idVehicle === v._id) {
+        v.wagons.map((i) => {
+          if (i == "nmdh" || i == "ncdh") {
+            total += 64;
+          } else if (i == "nk4dh") total += 28;
+          else if (i == "nk6dh") total += 42;
+        });
+      }
+    }
+    return total;
+  };
+
   return (
     <div className="card right-content-fixsize">
       <Modal show={false} onHide={handleModalClose}>
@@ -185,14 +201,14 @@ export const ListVehicleTable = (props) => {
             ))}
           </select>
           <Input
-            value={vehicle.lisensePlate}
+            value={vehicle.idTrain}
             placeholder={`Biển số`}
             onChange={(e) =>
-              setVehicle({ ...vehicle, lisensePlate: e.target.value })
+              setVehicle({ ...vehicle, idTrain: e.target.value })
             }
           ></Input>
           <Input
-            value={vehicle.totalSeat}
+            value={countTotalSeat(vehicle._id)}
             placeholder={`Số ghế`}
             onChange={(e) =>
               setVehicle({ ...vehicle, totalSeat: e.target.value })
@@ -235,22 +251,22 @@ export const ListVehicleTable = (props) => {
                   checkEditData();
                 }}
                 list={getListEnterprise()}
-                title="Enterprise"
+                title="Nhà xe"
               />
 
               <InputTitleLeft
-                title="Biển số"
-                value={vehicle.lisensePlate}
+                title="Số hiệu"
+                value={vehicle.idTrain}
                 placeholder={``}
                 onChange={(e) => {
-                  setVehicle({ ...vehicle, lisensePlate: e.target.value });
+                  setVehicle({ ...vehicle, idTrain: e.target.value });
                   checkEditData();
                 }}
               />
 
               <InputTitleLeft
                 title="Số ghế"
-                value={vehicle.totalSeat}
+                value={countTotalSeat(vehicle._id)}
                 placeholder={``}
                 onChange={(e) => {
                   setVehicle({ ...vehicle, totalSeat: e.target.value });

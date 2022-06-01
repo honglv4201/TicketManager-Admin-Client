@@ -6,6 +6,22 @@ import "./selectbox.css";
  **/
 
 export const SelectBox = (props) => {
+  const countTotalSeat = (idVehicle) => {
+    let total = 0;
+
+    for (let v of props.list) {
+      if (idVehicle === v._id) {
+        v.wagons.map((i) => {
+          if (i == "nmdh" || i == "ncdh") {
+            total += 64;
+          } else if (i == "nk4dh") total += 28;
+          else if (i == "nk6dh") total += 42;
+        });
+      }
+    }
+    return total;
+  };
+
   return (
     <div className="selectbox">
       <div className="title">{props.title}</div>
@@ -17,21 +33,6 @@ export const SelectBox = (props) => {
         <option></option>
         {props.list.map((option) => {
           if (props.type === "VehicleSelect") {
-            const countTotalSeat = (idVehicle) => {
-              let total = 0;
-
-              for (let v of props.list) {
-                if (idVehicle === v._id) {
-                  v.wagons.map((i) => {
-                    if (i == "nmdh" || i == "ncdh") {
-                      total += 64;
-                    } else if (i == "nk4dh") total += 28;
-                    else if (i == "nk6dh") total += 42;
-                  });
-                }
-              }
-              return total;
-            };
             return (
               <option key={option._id} value={option._id}>
                 Số hiệu: {option.idTrain} - Số ghế: {countTotalSeat(option._id)}
@@ -40,7 +41,7 @@ export const SelectBox = (props) => {
           } else if (props.type === "VehicleSelect_BS") {
             return (
               <option key={option._id} value={option._id}>
-                BS:{option.lisensePlate} - SG:{option.totalSeat}
+                Số hiệu: {option.idTrain} - Số ghế: {countTotalSeat(option._id)}
               </option>
             );
           } else if (props.type === "EnterpriseSelect") {

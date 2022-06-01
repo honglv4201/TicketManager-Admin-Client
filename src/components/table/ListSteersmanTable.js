@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import swal from "sweetalert";
 import SteersmanAction from "../../actions/steersman.actions";
 import { InputTitleLeft } from "../UI/inputTitleLeft/InputTitleLeft";
 import { SelectBox } from "../UI/select/SelectBox";
@@ -95,8 +96,20 @@ export const ListSteersmanTable = (props) => {
     if (modalFlag === "Add") {
       delete form._id;
       dispatch(SteersmanAction.addSteersman(form));
+      swal({
+        title: "Thêm thành công",
+        text: "Bạn đã thêm tài xế thành công",
+        icon: "success",
+        button: "OK",
+      });
     } else {
       dispatch(SteersmanAction.editSteersman(form));
+      swal({
+        title: "Sửa thành công",
+        text: "Bạn đã sửa tài xế thành công",
+        icon: "success",
+        button: "OK",
+      });
     }
     setSteersman(initSteersman);
     if (props.type !== "Main") {
@@ -143,39 +156,65 @@ export const ListSteersmanTable = (props) => {
   const renderSteersmans = (steersmans) => {
     let mySteersmans = [];
     for (let steersman of steersmans) {
-      mySteersmans.push(
-        <tr>
-          <td>
-            {steersman.idUser.firstName} {steersman.idUser.lastName}
-          </td>
-          <td>{steersman.profile.gender === "Male" ? "Nam" : "Nữ"}</td>
-          <td>{steersman.idUser.contactNumber}</td>
-          <td>{steersman.position}</td>
-          <td>
-            {steersman.idVehicle ? steersman.idVehicle.lisensePlate : "Trống"}
-          </td>
-          <td>
-            <button
-              className="edit"
-              onClick={() => {
-                handleModalShow("Edit", steersman);
-              }}
-            >
-              <i class="far fa-edit"></i>
-            </button>
-            <button
-              className="delete"
-              onClick={() => {
-                //delRoute(route);
-              }}
-            >
-              <i class="far fa-trash-alt"></i>
-            </button>
-          </td>
-        </tr>
-      );
+      if (steersman.isActive === "yes") {
+        mySteersmans.push(
+          <tr>
+            <td>
+              {steersman.idUser.firstName} {steersman.idUser.lastName}
+            </td>
+            <td>{steersman.profile.gender === "Male" ? "Nam" : "Nữ"}</td>
+            <td>{steersman.idUser.contactNumber}</td>
+            <td>{steersman.position}</td>
+            <td>
+              {steersman.idVehicle ? steersman.idVehicle.idTrain : "Trống"}
+            </td>
+            <td>
+              <button
+                className="edit"
+                onClick={() => {
+                  handleModalShow("Edit", steersman);
+                }}
+              >
+                <i class="far fa-edit"></i>
+              </button>
+              <button
+                className="delete"
+                onClick={() => {
+                  delSteersman(steersman);
+                }}
+              >
+                <i class="far fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+        );
+      }
     }
     return mySteersmans;
+  };
+
+  const delSteersman = (selectedRot) => {
+    var form = selectedRot;
+    swal({
+      title: "Bạn chắc chắn xóa",
+      text: "Bạn có chắc sẽ xóa tài xế này không",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("Tài xế đã được xóa thành công!", {
+          icon: "success",
+        });
+        form.isActive = "no";
+        dispatch(SteersmanAction.editSteersman(form));
+        if (props.type !== "Main") {
+          props.reLoadEnterpriseDetails();
+        }
+      } else {
+        swal("Tài xế vẫn chưa bị xóa!");
+      }
+    });
   };
 
   const getSearchTerm = () => {
