@@ -152,25 +152,22 @@ const AnalyticsAction = {
     }
   },
 
-  getCurrentMonth: (date) => async (dispatch) => {
+  getTotalTicket_Sale: (date) => async (dispatch) => {
     try {
       dispatch({ type: analyticsConstants.ANALYTICS_REQUEST });
 
-      const data = await AnalyticsApi.getCurrentMonth(date);
+      const data = await AnalyticsApi.getTotalTicket_Sale(date);
 
-      const {
-        totalTicket,
-        totalSale,
-        totalCanceledTicket,
-        totalNewUser,
-      } = data.data;
+      const { totalTicket, totalSale, totalNewUser, totalCanceledTicket } =
+        data.data;
+
       dispatch({
         type: analyticsConstants.ANALYTICS_SUCCESS,
         payload: {
           totalTicket,
           totalSale,
-          totalCanceledTicket,
           totalNewUser,
+          // totalCanceledTicket,
         },
       });
     } catch (error) {

@@ -14,7 +14,7 @@ export const ReportEnterpriseTable = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const form = { month: p_month, year: p_year };
-    dispatch(TicketAction.getReport(form));
+    // dispatch(TicketAction.getReport(form));
   }, [p_month, p_year]);
   const state_report = useSelector((state) => state.ticketR.report);
 

@@ -30,7 +30,7 @@ export const analyticsReducer = (state = {}, action) => {
       return {
         totalTicket: action.payload.totalTicket,
         totalSale: action.payload.totalSale,
-        totalCanceledTicket: action.payload.totalCanceledTicket,
+        // totalCanceledTicket: action.payload.totalCanceledTicket,
         totalNewUser: action.payload.totalNewUser,
         loading: false,
       };

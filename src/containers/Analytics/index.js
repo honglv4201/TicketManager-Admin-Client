@@ -38,27 +38,24 @@ export const Analytics = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(AnalyticsAction.getCurrentMonth({ month, year }));
+    dispatch(AnalyticsAction.getTotalTicket_Sale({ month, year }));
     dispatch(AnalyticsAction.getDateByMonthYear({ month, year }));
     dispatch(AnalyticsAction.getNewUser({ month, year }));
-    dispatch(AnalyticsAction.getTicketCanceled({ month, year }));
+    // dispatch(AnalyticsAction.getTicketCanceled({ month, year }));
   }, [month, year]);
 
   const filterShow = (e) => {
     e.preventDefault();
+    dispatch(AnalyticsAction.getTotalTicket_Sale({ month, year }));
     dispatch(AnalyticsAction.getDateByMonthYear({ month, year }));
-    dispatch(AnalyticsAction.getCurrentMonth({ month, year }));
     dispatch(AnalyticsAction.getNewUser({ month, year }));
-    dispatch(AnalyticsAction.getTicketCanceled({ month, year }));
+    // dispatch(AnalyticsAction.getTicketCanceled({ month, year }));
   };
 
   const analytics = useSelector((state) => state.analytics);
-  const {
-    totalTicket,
-    totalSale,
-    totalCanceledTicket,
-    totalNewUser,
-  } = analytics;
+  // const { totalTicket, totalSale, totalCanceledTicket, totalNewUser } =
+  //   analytics;
+  const { totalTicket, totalSale, totalNewUser } = analytics;
 
   const chart = useSelector((state) => state.chart);
   const { listTicket, listSale } = chart;
@@ -186,7 +183,7 @@ export const Analytics = (props) => {
         <FeaturedInfo
           ticket={totalTicket}
           sale={totalSale}
-          canceledTicket={totalCanceledTicket}
+          // canceledTicket={totalCanceledTicket}
           newUser={totalNewUser}
         />
         <div className="dropDown ticket-analytics">

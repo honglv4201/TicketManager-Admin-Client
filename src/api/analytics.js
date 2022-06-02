@@ -42,14 +42,20 @@ const AnalyticsApi = {
     return data;
   },
 
-  getCurrentMonth: async (date) => {
-    const data = await axiosIntance.post(`ticket/getMonthByMonthYear`, date);
+  getTotalTicket_Sale: async (date) => {
+    const data = await axiosIntance.post(
+      `wagonTicket/getTotalTicket_Sale`,
+      date
+    );
 
     return data;
   },
 
   getDateByMonthYear: async (date) => {
-    const data = await axiosIntance.post(`ticket/getDateByMonthYear`, date);
+    const data = await axiosIntance.post(
+      `wagonTicket/getDateByMonthYear`,
+      date
+    );
 
     return data;
   },
