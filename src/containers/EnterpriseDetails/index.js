@@ -132,6 +132,8 @@ export const EnterpriseDetails = (props) => {
           searchTermV.length < 1 ? enterpriseDetails.vehicles : searchResultsV
         }
         listEnterprise={state_enterprise}
+        nameEnterprise={enterpriseDetails.enterprise.name}
+        idEnterprise={enterpriseDetails.enterprise._id}
         type="Other"
         reLoadEnterpriseDetails={loadEnterpriseDetails}
         term={searchTermV}

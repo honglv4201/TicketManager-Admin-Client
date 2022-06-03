@@ -278,7 +278,6 @@ export const ListTripTable = (props) => {
                 <div className="ui-search">
                   <input
                     ref={inputEl}
-                    type="number"
                     placeholder="Tìm kiếm"
                     className="prompt"
                     value={term}

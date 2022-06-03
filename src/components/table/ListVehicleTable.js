@@ -26,10 +26,19 @@ export const ListVehicleTable = (props) => {
     }
     return listVehicle;
   };
+  const getAllListVehicle = () => {
+    let listVehicle = [];
+    for (let i = 0; i < prop_listVehicle.length; i++) {
+      if (prop_listVehicle[i].isActive === "yes") {
+        listVehicle.push(prop_listVehicle[i]);
+      }
+    }
+    return listVehicle;
+  };
   const getListEnterprise = () => {
     let list = [];
     for (let i = 0; i < prop_listEnterprise.enterprises.length; i++) {
-      if (prop_listEnterprise.enterprises[i].isActive === "yes") {
+      if (prop_listEnterprise.enterprises[i].isDeleted === "no") {
         list.push(prop_listEnterprise.enterprises[i]);
       }
     }
@@ -40,9 +49,10 @@ export const ListVehicleTable = (props) => {
     return {
       _id: "",
       idTrain: "",
-      idEnterprise: "",
-      totalSeat: 0,
-      quality: "",
+      numPlate: "",
+      idEnterprise: props.idEnterprise,
+      nameEnterprise: props.nameEnterprise,
+      typeOfSpeed: "",
       isActive: "yes",
     };
   };
@@ -54,12 +64,7 @@ export const ListVehicleTable = (props) => {
   const [editData, setEditData] = useState(false);
 
   const checkEditData = () => {
-    if (
-      vehicle.quality &&
-      vehicle.totalSeat &&
-      vehicle.lisensePlate &&
-      vehicle.idEnterprise
-    ) {
+    if (vehicle.typeOfSpeed && vehicle.numPlate && vehicle.idTrain) {
       setEditData(true);
     } else {
       setEditData(false);
@@ -69,6 +74,7 @@ export const ListVehicleTable = (props) => {
     if (iFlag === "Add") {
       setModalFlag("Add");
       setModalTitle("Thêm phương tiện");
+      setVehicle({ ...vehicle, idEnterprise: props.idEnterprise });
     } else {
       setModalFlag("Edit");
       setModalTitle("Sửa phương tiện");
@@ -120,7 +126,7 @@ export const ListVehicleTable = (props) => {
   };
 
   const vehicles = {
-    header: ["Biển số", "Số ghế", "Chất lượng", "Tùy chọn"],
+    header: ["Số hiệu", "Biển số ", "Số ghế", "Tốc độ", "Tùy chọn"],
     body: [],
   };
   const renderHead = (item, ind) => {
@@ -133,6 +139,7 @@ export const ListVehicleTable = (props) => {
       myVehicles.push(
         <tr>
           <td>{vehicle.idTrain}</td>
+          <td>{vehicle.numPlate}</td>
           <td>{countTotalSeat(vehicle._id)}</td>
           <td>{vehicle.typeOfSpeed}</td>
           <td>
@@ -243,44 +250,39 @@ export const ListVehicleTable = (props) => {
 
           <div className="add-modal__body">
             <div className="input-enterprise-name">
-              <SelectBox
-                type="commonID"
-                value={vehicle.idEnterprise}
-                onChange={(e) => {
-                  setVehicle({ ...vehicle, idEnterprise: e.target.value });
-                  checkEditData();
-                }}
-                list={getListEnterprise()}
+              <InputTitleLeft
                 title="Nhà xe"
+                value={vehicle.nameEnterprise}
+                placeholder={``}
               />
 
-              <InputTitleLeft
-                title="Số hiệu"
+              <SelectBox
+                type="idTrain"
                 value={vehicle.idTrain}
-                placeholder={``}
                 onChange={(e) => {
                   setVehicle({ ...vehicle, idTrain: e.target.value });
                   checkEditData();
                 }}
+                title="Số hiệu"
               />
 
               <InputTitleLeft
-                title="Số ghế"
-                value={countTotalSeat(vehicle._id)}
+                title="Biển số"
+                value={vehicle.numPlate}
                 placeholder={``}
                 onChange={(e) => {
-                  setVehicle({ ...vehicle, totalSeat: e.target.value });
+                  setVehicle({ ...vehicle, numPlate: e.target.value });
                   checkEditData();
                 }}
               />
-              <InputTitleLeft
-                title="Chất lượng"
-                value={vehicle.quality}
-                placeholder={``}
+              <SelectBox
+                type="speed"
+                value={vehicle.typeOfSpeed}
                 onChange={(e) => {
-                  setVehicle({ ...vehicle, quality: e.target.value });
+                  setVehicle({ ...vehicle, typeOfSpeed: e.target.value });
                   checkEditData();
                 }}
+                title="Tốc độ"
               />
             </div>
           </div>
