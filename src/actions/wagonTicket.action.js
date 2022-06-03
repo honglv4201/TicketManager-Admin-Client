@@ -5,10 +5,8 @@ const wagonTicketAction = {
   addWagonTicket: (form) => {
     return async (dispatch) => {
       var newForm = {
-        idTicket: form._id,
+        idTrip: form._id,
         price: form.price,
-        numOfWagon: "0",
-        wagon: "62921862123edbb452ea64a3",
       };
       dispatch({ type: wagonTicketConstants.ADD_NEW_WAGON_TICKET_REQUEST });
       const res = await wagonTicketApi.create(newForm);

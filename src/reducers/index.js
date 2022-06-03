@@ -20,6 +20,7 @@ import tripReducers from "./trip.reducers";
 import ticketReducers from "./ticket.reducers";
 import user_ticket from "./user_ticket";
 import offlineTicketReducers from "./offlineTicket.reducers";
+import steersmanReducers from "./steersman.reducers";
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -41,6 +42,7 @@ const rootReducer = combineReducers({
   ticketR: ticketReducers,
   offlineticket: offlineTicketReducers,
   user_ticket,
+  steersman: steersmanReducers,
 });
 
 export default rootReducer;

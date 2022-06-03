@@ -36,7 +36,6 @@ const TicketAction = {
         dispatch(
           wagonTicketAction.addWagonTicket({
             ...form,
-            _id: res.data._id,
           })
         );
 

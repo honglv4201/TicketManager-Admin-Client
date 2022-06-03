@@ -9,6 +9,24 @@ const initState = {
 
 export default (state = initState, action) => {
   switch (action.type) {
+    case steersmanConstants.GET_ALL_STEERSMAN_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
+    case steersmanConstants.GET_ALL_STEERSMAN_SUCCESS:
+      state = {
+        ...state,
+        loading: false,
+        steersmans: action.payload.steersmans,
+      };
+      break;
+    case steersmanConstants.GET_ALL_STEERSMAN_FAILURE:
+      state = {
+        ...initState,
+      };
+      break;
     case steersmanConstants.ADD_NEW_STEERSMAN_REQUEST:
       state = {
         ...state,

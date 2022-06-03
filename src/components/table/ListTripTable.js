@@ -20,6 +20,7 @@ export const ListTripTable = (props) => {
   );
   const listVehicle = props.listVehicle;
   const listTicket = props.listTicket;
+  const listSteersman = props.listSteersman;
   const term = props.term;
   const initTrip = () => {
     return {
@@ -29,6 +30,7 @@ export const ListTripTable = (props) => {
       startDate: "1945-12-31T12:00:00.000Z",
       price: "",
       totalSeat: 0,
+      idSteersman: "",
     };
   };
 
@@ -208,7 +210,6 @@ export const ListTripTable = (props) => {
   const renderTrips = (trips) => {
     let myTrips = [];
     for (let trip of trips) {
-      console.log("phucs ngu ", trip);
       myTrips.push(
         <tr>
           <td>{new Date(trip.startDate).toLocaleDateString("vi-VN")}</td>
@@ -356,6 +357,19 @@ export const ListTripTable = (props) => {
                   setTrip({ ...trip, price: e.target.value });
                   checkEditData();
                 }}
+              />
+              <SelectBox
+                value={trip.idSteersman}
+                onChange={(e) => {
+                  setTrip({
+                    ...trip,
+                    idSteersman: e.target.value,
+                  });
+                  checkEditData();
+                }}
+                list={listSteersman}
+                title="Tài xế"
+                type="SteersmanSelect"
               />
             </div>
           </div>

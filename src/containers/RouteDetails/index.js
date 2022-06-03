@@ -7,6 +7,7 @@ import busImg from "../../asset/img/bus.png";
 import TicketAction from "../../actions/ticket.actions";
 import RouteAction from "../../actions/route.actions";
 import { useParams } from "react-router-dom";
+import SteersmanAction from "../../actions/steersman.actions";
 
 /**
  * @author
@@ -19,6 +20,7 @@ export const RouteDetails = (props) => {
   const state_vehicle = useSelector((state) => state.vehicle);
   const state_routeDetails = useSelector((state) => state.route.routeDetails);
   const state_ticketR = useSelector((state) => state.ticketR);
+  const state_Steersman = useSelector((state) => state.steersman);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -28,6 +30,7 @@ export const RouteDetails = (props) => {
 
     dispatch(RouteAction.getAllRoutes());
     dispatch(VehicleAction.getAllVehicles());
+    dispatch(SteersmanAction.getAllSteersman());
   }, []);
   const { routeId } = useParams();
   const loadRouteDetails = () => {
@@ -38,7 +41,7 @@ export const RouteDetails = (props) => {
       },
     };
     dispatch(RouteAction.getRouteDetailssById(payload));
-    dispatch(TicketAction.getAllTickets());
+    // dispatch(TicketAction.getAllTickets());
     //dispatch(getRouteDetailssByIdInEnterprise(payload));
   };
 
@@ -97,6 +100,7 @@ export const RouteDetails = (props) => {
         }
         listVehicle={state_vehicle.vehicles}
         listTicket={state_ticketR.tickets}
+        listSteersman={state_Steersman.steersmans}
         idRoute={state_routeDetails.route._id}
         reLoad={loadRouteDetails}
         term={searchTerm}
