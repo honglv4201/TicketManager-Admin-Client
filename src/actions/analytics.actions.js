@@ -167,7 +167,7 @@ const AnalyticsAction = {
           totalTicket,
           totalSale,
           totalNewUser,
-          // totalCanceledTicket,
+          totalCanceledTicket,
         },
       });
     } catch (error) {

@@ -18,7 +18,9 @@ const TicketApi = {
   getReport: async (form) => {
     axios.defaults.timeout = 1000000;
 
-    const res = await axios.post(`ticket/getReport`, { ...form });
+    const res = await axios.post(`wagonTicket/getReportEnterprises`, {
+      ...form,
+    });
 
     return res;
   },

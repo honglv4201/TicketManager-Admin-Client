@@ -191,13 +191,12 @@ export const ListEnterpriseTable = (props) => {
                   checkEditData();
                 }}
                 list={listCity}
-                type="AddressSelect"
+                type="LocationSelect"
                 title="Địa chỉ"
               />
 
               <InputTitleLeft
                 title="Hotline"
-                type="number"
                 value={enterprise.hotline}
                 placeholder={``}
                 onChange={(e) => {

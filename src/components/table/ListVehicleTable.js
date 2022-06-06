@@ -87,8 +87,20 @@ export const ListVehicleTable = (props) => {
     if (modalFlag === "Add") {
       delete form._id;
       dispatch(VehicleAction.addVehicle(form));
+      swal({
+        title: "Thêm thành công",
+        text: "Bạn đã thêm phương tiện thành công",
+        icon: "success",
+        button: "OK",
+      });
     } else {
       dispatch(VehicleAction.editVehicle(form));
+      swal({
+        title: "Sửa thành công",
+        text: "Bạn đã sửa phương tiện thành công",
+        icon: "success",
+        button: "OK",
+      });
     }
     setVehicle(initVehicle);
     if (props.type !== "Main") {
@@ -102,7 +114,7 @@ export const ListVehicleTable = (props) => {
   };
 
   const delVehicle = (selectedVeh) => {
-    const form = selectedVeh;
+    let form = selectedVeh;
     swal({
       title: "Bạn chắc chắn xóa",
       text: "Bạn có chắc sẽ xóa phương tiện này không",

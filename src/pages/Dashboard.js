@@ -19,11 +19,11 @@ export const DashBoard = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(AnalyticsAction.getCurrentDate());
-    dispatch(AnalyticsAction.getCurrentByEnterprises());
-    dispatch(AnalyticsAction.getCurrentByEnterprisesList());
-    dispatch(AnalyticsAction.getAllName());
-    dispatch(AnalyticsAction.getLastOrder());
+    // dispatch(AnalyticsAction.getCurrentDate());
+    // dispatch(AnalyticsAction.getCurrentByEnterprises());
+    // dispatch(AnalyticsAction.getCurrentByEnterprisesList());
+    // dispatch(AnalyticsAction.getAllName());
+    // dispatch(AnalyticsAction.getLastOrder());
   }, []);
 
   const currentDate = useSelector((state) => state.currentDate);

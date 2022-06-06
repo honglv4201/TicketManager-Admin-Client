@@ -53,9 +53,9 @@ export const Analytics = (props) => {
   };
 
   const analytics = useSelector((state) => state.analytics);
-  // const { totalTicket, totalSale, totalCanceledTicket, totalNewUser } =
-  //   analytics;
-  const { totalTicket, totalSale, totalNewUser } = analytics;
+
+  const { totalTicket, totalSale, totalNewUser, totalCanceledTicket } =
+    analytics;
 
   const chart = useSelector((state) => state.chart);
   const { listTicket, listSale } = chart;
@@ -183,7 +183,7 @@ export const Analytics = (props) => {
         <FeaturedInfo
           ticket={totalTicket}
           sale={totalSale}
-          // canceledTicket={totalCanceledTicket}
+          canceledTicket={totalCanceledTicket}
           newUser={totalNewUser}
         />
         <div className="dropDown ticket-analytics">
@@ -270,20 +270,7 @@ export const Analytics = (props) => {
           <div className="col-4">
             <div className="chart">
               <b> Thống kê vé </b>
-              {/* <Doughnut
-                data={{
-                  labels: ["Vé bán", "Vé hủy"],
-                  datasets: [
-                    {
-                      data: donutData,
-                      backgroundColor: [
-                        "rgb(255, 99, 132)",
-                        "rgb(54, 162, 235)",
-                      ],
-                    },
-                  ],
-                }}
-              ></Doughnut> */}
+              {/* <Doughnut data={data}></Doughnut> */}
             </div>
           </div>
         </div>

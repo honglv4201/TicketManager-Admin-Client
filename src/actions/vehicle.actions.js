@@ -45,20 +45,24 @@ const VehicleAction = {
 
   editVehicle: (form) => {
     return async (dispatch) => {
-      dispatch({ type: vehicleConstants.EDIT_VEHICLE_REQUEST });
+      try {
+        dispatch({ type: vehicleConstants.EDIT_VEHICLE_REQUEST });
 
-      const res = await VehicleApi.update();
+        const res = await VehicleApi.update(form);
 
-      if (res.status === 200) {
-        dispatch({
-          type: vehicleConstants.EDIT_VEHICLE_SUCCESS,
-          payload: { vehicle: res.data },
-        });
-      } else {
-        dispatch({
-          type: vehicleConstants.EDIT_VEHICLE_FAILURE,
-          payload: { error: res.data.error },
-        });
+        if (res.status === 200) {
+          dispatch({
+            type: vehicleConstants.EDIT_VEHICLE_SUCCESS,
+            payload: { vehicle: res.data },
+          });
+        } else {
+          dispatch({
+            type: vehicleConstants.EDIT_VEHICLE_FAILURE,
+            payload: { error: res.data.error },
+          });
+        }
+      } catch (err) {
+        console.log(err);
       }
     };
   },

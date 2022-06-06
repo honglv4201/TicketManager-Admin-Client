@@ -14,7 +14,7 @@ export const ReportEnterpriseTable = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const form = { month: p_month, year: p_year };
-    // dispatch(TicketAction.getReport(form));
+    dispatch(TicketAction.getReport(form));
   }, [p_month, p_year]);
   const state_report = useSelector((state) => state.ticketR.report);
 
@@ -30,9 +30,9 @@ export const ReportEnterpriseTable = (props) => {
       list.push(
         <tr>
           <td>{count}</td>
-          <td>{d.name}</td>
-          <td>{d.sumTi}</td>
-          <td>{d.sumMo}</td>
+          <td>{d._id}</td>
+          <td>{d.totalTicket}</td>
+          <td>{d.totalSale}</td>
         </tr>
       );
       count += 1;

@@ -29,8 +29,6 @@ const TripAction = {
     return async (dispatch) => {
       dispatch({ type: tripConstants.EDIT_TRIP_REQUEST });
 
-      console.log(form);
-
       const res = await TripApi.edit(form);
 
       if (res.status === 200) {

@@ -80,7 +80,7 @@ export const SelectBox = (props) => {
             } else if (props.type === "LocationSelect") {
               return (
                 <option key={option._id} value={option.name}>
-                  {option.name} - {props.addShow}
+                  {option.name}
                 </option>
               );
             } else if (props.type === "gender") {
