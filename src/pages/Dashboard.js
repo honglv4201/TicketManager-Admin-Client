@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout } from "../components/Layout";
 import statusCards from "../asset/JsonData/status-card-data.json";
+import cus from "../asset/JsonData/customers-list.json";
 import { StatusCard } from "../components/statusCard/StatusCard";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -23,7 +24,7 @@ export const DashBoard = (props) => {
     // dispatch(AnalyticsAction.getCurrentByEnterprises());
     // dispatch(AnalyticsAction.getCurrentByEnterprisesList());
     // dispatch(AnalyticsAction.getAllName());
-    // dispatch(AnalyticsAction.getLastOrder());
+    dispatch(AnalyticsAction.getLastOrder());
   }, []);
 
   const currentDate = useSelector((state) => state.currentDate);
@@ -94,9 +95,12 @@ export const DashBoard = (props) => {
   const latestOrders = {
     header: [
       "STT",
-      "Người dùng",
+      "Người đặt",
       "Email",
       "Số điện thoại",
+      "CCCD/CMND",
+      "Số ghế",
+      "Tổng tiền",
       "Thanh toán",
       "Trạng thái",
     ],
@@ -116,27 +120,28 @@ export const DashBoard = (props) => {
   const renderOrderHead = (item, ind) => <th key={ind}>{item}</th>;
   const renderOrderBody = (item, ind) => (
     <tr key={ind}>
-      <td>{item.id}</td>
-      <td>{item.user}</td>
+      <td>{item.stt}</td>
+      <td>{item.fullname}</td>
       <td>{item.email}</td>
-      <td>{item.contact}</td>
-      <td>{item.price}</td>
-      <td>{item.status}</td>
+      <td>{item.phoneNumber}</td>
+      <td>{item.identifyNumber}</td>
+      <td>{item.totalTicket}</td>
+      <td>{item.totalPrice}</td>
+      <td>{item.payment}</td>
+      <td>{item.isPay}</td>
     </tr>
   );
 
-  if (Object.keys(currentDate).length === 0) {
-    return null;
-  }
-  if (currentDate.currentDateData === null) {
-    return null;
-  }
+  // if (Object.keys(currentDate).length === 0) {
+  //   return null;
+  // }
+  // if (currentDate.currentDateData === null) {
+  //   return null;
+  // }
 
   if (!localStorage.getItem("token")) {
     return <Navigate to={`/signin`} />;
   }
-
-  console.log(currentDate);
 
   return (
     <div>
@@ -146,7 +151,7 @@ export const DashBoard = (props) => {
         <div className="row">
           <div className="col-12">
             <div className="row">
-              {currentDate.currentDateData.map((item) => (
+              {statusCards.map((item) => (
                 <div className="col-3">
                   <StatusCard
                     icon={item.icon}
@@ -160,11 +165,11 @@ export const DashBoard = (props) => {
 
           <div className="col-7">
             <div className="card full-height">
-              <Chart
+              {/* <Chart
                 options={chartOptions.options}
                 series={chartOptions.series}
                 height="100%"
-              />
+              /> */}
             </div>
           </div>
 
@@ -174,12 +179,12 @@ export const DashBoard = (props) => {
                 <h3>Nhà xe</h3>
               </div>
               <div className="card__body">
-                <Table
+                {/* <Table
                   headData={topEnterPrises.head}
                   renderHead={(item, ind) => renderHead(item, ind)}
                   bodyData={topEnterPrises.body}
                   renderBody={(item, ind) => renderBody(item, ind)}
-                />
+                /> */}
               </div>
               <div className="card__footer">
                 <a>View all</a>

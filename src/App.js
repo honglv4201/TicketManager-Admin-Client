@@ -56,6 +56,7 @@ const AppRoute = () => {
     { path: "/user", element: <User /> },
     { path: "/settings", element: <Rules /> },
     { path: "/", element: <DashBoard /> },
+    { path: "/dashBoard", element: <DashBoard /> },
     { path: "/customers", element: <Customer /> },
     { path: "/booking", element: <AdminBooking /> },
   ]);

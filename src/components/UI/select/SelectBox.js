@@ -38,14 +38,15 @@ export const SelectBox = (props) => {
             if (props.type === "VehicleSelect") {
               return (
                 <option key={option._id} value={option._id}>
-                  Số hiệu: {option.idTrain} - Số ghế:{" "}
+                  SH: {option.idTrain} - BS: {option.numPlate} - SG:{" "}
                   {countTotalSeat(option._id)}
                 </option>
               );
             } else if (props.type === "VehicleSelect_BS") {
               return (
                 <option key={option._id} value={option._id}>
-                  Số hiệu: {option.idTrain} - Số ghế:{" "}
+                  SH: {option.idTrain} - BS: {option.numPlate} - SG:{" "}
+                  {countTotalSeat(option._id)}
                   {countTotalSeat(option._id)}
                 </option>
               );

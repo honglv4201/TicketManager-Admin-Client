@@ -2,7 +2,7 @@ import axiosIntance from "../helpers/axios";
 
 const AnalyticsApi = {
   getLastOrder: async () => {
-    const { data } = await axiosIntance.get(`user_ticket/getLastOrder`);
+    const { data } = await axiosIntance.get(`invoice/getAll`);
 
     return data;
   },

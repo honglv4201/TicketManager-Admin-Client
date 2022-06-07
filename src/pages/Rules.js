@@ -19,7 +19,7 @@ export const Rules = () => {
   });
   const [changeState, setChangeState] = useState(false);
   const handleSubmitChangeRegulation = () => {
-    axios.put(`http://localhost:2000/api/rule/61aeb8a2d82d65187dbf7c6b`, rules);
+    axios.put(`http://localhost:2000/api/rule/629f47b2ad18e2f9b52514dd`, rules);
     alert("Lưu thành công");
     setChangeState(false);
   };
@@ -34,10 +34,10 @@ export const Rules = () => {
   useEffect(() => {
     axios
       .get(`http://localhost:2000/api/rule`)
-      .then(function(response) {
+      .then(function (response) {
         return response.data;
       })
-      .then(function(data) {
+      .then(function (data) {
         const items = data;
         setRules({
           book: items[0].book,

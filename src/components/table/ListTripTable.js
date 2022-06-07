@@ -47,7 +47,10 @@ export const ListTripTable = (props) => {
     if (checked) {
       let list = [];
       for (let i = 0; i < prop_listTrip.length; i++) {
-        var date = new Date(prop_listTrip[i].startDate);
+        var month = new Date(prop_listTrip[i].startDate).getUTCMonth() + 1;
+        var day = new Date(prop_listTrip[i].startDate).getUTCDate();
+        var year = new Date(prop_listTrip[i].startDate).getUTCFullYear();
+        var date = new Date(year, month, day);
         var curDate = new Date();
         if (date > curDate) {
           list.push(prop_listTrip[i]);
