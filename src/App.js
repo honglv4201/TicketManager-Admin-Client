@@ -13,6 +13,7 @@ import { Enterprise } from "./containers/Enterprise";
 import { Analytics } from "./containers/Analytics";
 
 import { DashBoard } from "./pages/Dashboard";
+import { UserBooking } from "./pages/UserBooking";
 import { Customer } from "./pages/Customers";
 
 import "./asset/css/main.css";
@@ -57,6 +58,7 @@ const AppRoute = () => {
     { path: "/settings", element: <Rules /> },
     { path: "/", element: <DashBoard /> },
     { path: "/dashBoard", element: <DashBoard /> },
+    { path: "/userBooking", element: <UserBooking /> },
     { path: "/customers", element: <Customer /> },
     { path: "/booking", element: <AdminBooking /> },
   ]);
