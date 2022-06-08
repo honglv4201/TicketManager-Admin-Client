@@ -15,20 +15,20 @@ const AnalyticsApi = {
 
   getCurrentByEnterprisesList: async () => {
     const { data } = await axiosIntance.get(
-      `user_ticket/getCurrentByEnterprisesList`
+      `wagonTicket/getCurrentByEnterprisesList`
     );
 
     return data;
   },
 
   getCurrentByEnterprises: async () => {
-    const data = await axiosIntance.get(`user_ticket/getCurrentByEnterprises`);
+    const data = await axiosIntance.get(`wagonTicket/getCurrentByEnterprises`);
 
     return data;
   },
 
   getCurrentDate: async () => {
-    const { data } = await axiosIntance.get(`user_ticket/getCurrentDate`);
+    const { data } = await axiosIntance.get(`wagonTicket/getCurrentDate`);
 
     return data;
   },

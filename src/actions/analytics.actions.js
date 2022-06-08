@@ -81,6 +81,8 @@ const AnalyticsAction = {
 
         const { booking, sale } = data.data;
 
+        console.log(booking, sale);
+
         dispatch({
           type: analyticsConstants.CHART_ENTERPRISE_SUCCESS,
           payload: {

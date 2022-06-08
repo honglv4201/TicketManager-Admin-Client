@@ -20,9 +20,9 @@ export const DashBoard = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(AnalyticsAction.getCurrentDate());
-    // dispatch(AnalyticsAction.getCurrentByEnterprises());
-    // dispatch(AnalyticsAction.getCurrentByEnterprisesList());
+    dispatch(AnalyticsAction.getCurrentDate());
+    dispatch(AnalyticsAction.getCurrentByEnterprises());
+    dispatch(AnalyticsAction.getCurrentByEnterprisesList());
     // dispatch(AnalyticsAction.getAllName());
     dispatch(AnalyticsAction.getLastOrder());
   }, []);
@@ -132,12 +132,12 @@ export const DashBoard = (props) => {
     </tr>
   );
 
-  // if (Object.keys(currentDate).length === 0) {
-  //   return null;
-  // }
-  // if (currentDate.currentDateData === null) {
-  //   return null;
-  // }
+  if (Object.keys(currentDate).length === 0) {
+    return null;
+  }
+  if (currentDate.currentDateData === null) {
+    return null;
+  }
 
   if (!localStorage.getItem("token")) {
     return <Navigate to={`/signin`} />;
@@ -151,7 +151,7 @@ export const DashBoard = (props) => {
         <div className="row">
           <div className="col-12">
             <div className="row">
-              {statusCards.map((item) => (
+              {currentDate.currentDateData.map((item) => (
                 <div className="col-3">
                   <StatusCard
                     icon={item.icon}
@@ -165,11 +165,11 @@ export const DashBoard = (props) => {
 
           <div className="col-7">
             <div className="card full-height">
-              {/* <Chart
+              <Chart
                 options={chartOptions.options}
                 series={chartOptions.series}
                 height="100%"
-              /> */}
+              />
             </div>
           </div>
 
@@ -179,12 +179,12 @@ export const DashBoard = (props) => {
                 <h3>Nhà xe</h3>
               </div>
               <div className="card__body">
-                {/* <Table
+                <Table
                   headData={topEnterPrises.head}
                   renderHead={(item, ind) => renderHead(item, ind)}
                   bodyData={topEnterPrises.body}
                   renderBody={(item, ind) => renderBody(item, ind)}
-                /> */}
+                />
               </div>
               <div className="card__footer">
                 <a>View all</a>
