@@ -1,0 +1,21 @@
+.function-bar__ticket-list {
+  display: flex;
+}
+.function-bar__ticket-list button {
+  padding: 10px;
+  margin: 10px;
+  background-color: var(--white-color);
+  color: rgb(0, 150, 187);
+  border-radius: 6px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.function-bar__ticket-list button:hover {
+  background-color: rgb(0, 150, 187);
+  color: var(--white-color);
+}
+.function-bar__ticket-list button:active {
+  background-color: rgb(0, 150, 187);
+  color: var(--white-color);
+  opacity: 0.6;
+}

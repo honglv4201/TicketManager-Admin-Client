@@ -1,0 +1,30 @@
+.dropDown.ticket-analytics {
+  width: 100%;
+  display: flex;
+  justify-content: baseline;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.dropDown.ticket-analytics select {
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 2px solid #e5e5e5;
+}
+.dropDownItem {
+  margin: 0px 5px;
+  padding: 10px;
+}
+
+.btnItem {
+  margin: 10px 30px;
+  padding: 5px;
+}
+
+.chart {
+  padding: 50px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  margin: 35px auto;
+}

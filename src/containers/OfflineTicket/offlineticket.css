@@ -1,0 +1,112 @@
+.offlineticket .offlineticket__body {
+  display: flex;
+  box-shadow: 5px 10px 20px rgb(219, 219, 219);
+  padding: 40px 60px;
+  border-radius: 20px;
+  margin: 0px 30px 0;
+}
+.offlineticket h3.head-title {
+  font-size: 3.2rem;
+  text-align: center;
+  margin-top: 60px;
+  color: var(--main-color);
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.offlineticket__body .left-pannel-info {
+  position: relative;
+}
+
+.offlineticket__body .left-pannel-info::after {
+  position: absolute;
+  right: -40px;
+  top: 0px;
+  content: "";
+  width: 5px;
+  height: 100%;
+  background-color: rgba(219, 219, 219, 0.1);
+}
+.offlineticket__body .input-form {
+  flex: 1;
+  padding: 40px 60px;
+  border-radius: 20px;
+  margin: -70px 30px 0;
+}
+.offlineticket__body .btn-create-ticket {
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--main-color);
+  height: 50px;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 50px;
+}
+.offlineticket__body .btn-create-ticket:hover {
+  background-color: var(--second-color);
+}
+
+/* left panel */
+.left-pannel-info {
+  padding: 20px 30px;
+}
+.left-pannel-info .header {
+  height: auto;
+  margin-bottom: 30px;
+  position: relative;
+}
+.left-pannel-info .header::after {
+  content: "";
+  top: calc(100% + 16px);
+  position: absolute;
+  display: block;
+  border-bottom: 1px solid var(--brown-component-color);
+  width: calc(100% + 60px);
+  margin-left: -30px;
+}
+.offlineticket .left-pannel-info .time-estimate {
+  margin-left: 15px;
+  margin-top: 20px;
+}
+.left-pannel-info .header i.cus-bus,
+.time-estimate__wrapper > i {
+  color: var(--primary-color);
+  margin-right: 8px;
+}
+.left-pannel-info .header span,
+.time-estimate__wrapper > span {
+  font-size: 1.7rem;
+}
+.left-pannel-info .header .cus-right {
+  margin: 0 7px;
+  font-size: 1.3rem;
+}
+.left-pannel-info .header a {
+  margin-left: 15px;
+  text-decoration: none;
+  text-align: right;
+  flex: 1;
+}
+.main .date {
+  position: relative;
+}
+.left-pannel-info .main .date::after {
+  content: "";
+  top: calc(100% + 16px);
+  position: absolute;
+  display: block;
+  border-bottom: 1px solid var(--brown-component-color);
+  width: calc(100% + 60px);
+  margin-left: -30px;
+}
+.main .date > .start-time {
+  margin-left: 25px;
+  margin-top: 15px;
+}
+.total-time__wrapper {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: -30px;
+}

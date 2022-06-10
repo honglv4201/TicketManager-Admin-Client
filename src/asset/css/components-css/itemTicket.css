@@ -1,0 +1,74 @@
+.profile__item-ticket{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    background-color: #fff;
+    margin: 18px;
+    padding: 14px 25px;
+    border-radius: 35px;
+}
+
+.profile__item-ticket i{
+    font-size: 2.6rem;
+    color: var(--white-color);
+}
+
+.profile__item-ticket .image-type{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgb(45, 179, 74);
+    display: grid;
+    place-content: center;
+}
+.profile__item-ticket  .main{
+   margin-left: 20px;
+}
+.profile__item-ticket .namebus{
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+.profile__item-ticket .main .location{
+    font-size: 1.4rem;
+    font-weight: 400;
+    opacity: 0.8;
+    margin-top: 3px;
+}
+
+
+
+.profile__item-ticket .right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+}
+.profile__item-ticket .right .price{
+ 
+    font-weight: 500;
+}
+.profile__item-ticket .right .btn{
+    background-color: rgb(235, 235, 235);
+    padding: 5px 14px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: center;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+
+.profile__item-ticket .right .cancelBtn{
+    background-color: rgba(255, 0, 0, 0.63);
+    padding: 5px 14px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+

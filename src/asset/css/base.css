@@ -1,0 +1,102 @@
+@import url(./grid.css);
+:root {
+  --main-bg: #fff;
+  --second-bg: #fafafb;
+  --text-color: #455560;
+  --text-white: #fff;
+  --main-color: #349eff;
+  --second-color: #62b4ff;
+  --third-color: #0b77db;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  --main-bg-light: #ffffff;
+  --second-bg-light: #fafafb;
+  --third-bg-light: #f8f8f8;
+  --text-color-light: #455560;
+  --box-shadow-light: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  --main-bg-dark: #2d2d2d;
+  --second-bg-dark: #202020;
+  --text-color-dark: #bbbbbb;
+  --box-shadow-dark: rgba(0, 0, 0, 0.2) 0px 5px 10px;
+
+  --main-color-blue: #349eff;
+  --second-color-blue: #62b4ff;
+
+  --main-color-red: #fb0b12;
+  --second-color-red: #ff4a6b;
+
+  --main-color-cyan: #10d4d2;
+  --second-color-cyan: #2ae9e6;
+
+  --main-color-green: #019707;
+  --second-color-green: #4caf50;
+
+  --main-color-orange: #d68102;
+  --second-color-orange: #fca11a;
+
+  --white-color: #fff;
+  --border-input-color: rgb(235, 235, 235);
+  --border-input-color-focus: rgb(187, 187, 187);
+
+  --sidebar-width: 100px;
+  --border-radius: 15px;
+  --border-radius-small: 5px;
+  --border-radius-btn-td: 8px;
+  --topnav-height: 80px;
+
+  --color-wrapper-modal: rgba(0, 0, 0, 0.4);
+
+  --transition-cubic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* color status */
+  --status-red: #e74c3c;
+  --status-green: #00b887;
+  --status-blue: #3498db;
+}
+* {
+  /* disable user selection */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+a:hover {
+  color: var(--main-color);
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  color: var(--text-color);
+}
+
+ul {
+  list-style-type: none;
+}
+
+input {
+  border: 2px solid transparent;
+  outline: 0;
+}
+
+input:focus {
+  border: 2px solid var(--main-color);
+}
