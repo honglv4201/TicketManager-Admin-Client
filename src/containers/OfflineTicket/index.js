@@ -75,10 +75,10 @@ export const OfflineTicket = (props) => {
     dispatch(OfflineTicketAction.addOfflineTicket(form, ticket));
     swal({
       title: "Thêm thành công",
-      text: "Bạn đã thêm chuyến xe thành công",
+      text: "Bạn đã thêm chuyến tàu thành công",
       icon: "success",
       button: "OK",
-    }).then(function() {
+    }).then(function () {
       window.location = `${window.location.pathname.replace(
         "tickets",
         "informations"
@@ -103,14 +103,8 @@ export const OfflineTicket = (props) => {
       s += +1 - 0.6;
     }
     return s >= 24
-      ? (s - 24)
-          .toFixed(2)
-          .toString()
-          .replace(".", ":")
-      : s
-          .toFixed(2)
-          .toString()
-          .replace(".", ":");
+      ? (s - 24).toFixed(2).toString().replace(".", ":")
+      : s.toFixed(2).toString().replace(".", ":");
   };
   return (
     <Layout sidebar>
@@ -136,7 +130,7 @@ export const OfflineTicket = (props) => {
                 </p>
               </div>
               <div className="bus-branch">
-                {/* <span> Xe</span> <spanc className="branch-name"></spanc> */}
+                {/* <span> Tàu</span> <spanc className="branch-name"></spanc> */}
               </div>
               <div className="time-estimate__wrapper">
                 <i class="far fa-clock"></i>
