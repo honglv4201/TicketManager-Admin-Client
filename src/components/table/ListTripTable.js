@@ -246,7 +246,7 @@ export const ListTripTable = (props) => {
             >
               <i class="far fa-trash-alt"></i>
             </button>
-            <Link to={`/trips/${trip._id}/informations`}>
+            <Link to={`/trips/${trip._id}`}>
               <button className="detail" type="button" onClick={() => {}}>
                 Chi tiết
               </button>

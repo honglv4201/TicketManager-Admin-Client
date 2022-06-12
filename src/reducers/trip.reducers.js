@@ -57,6 +57,25 @@ export default (state = initState, action) => {
         loading: false,
         error: action.payload.error,
       };
+    case tripConstants.GET_TRIP_DETAILS_BY_ID_LOCATION_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
+    case tripConstants.GET_TRIP_DETAILS_BY_ID_LOCATION_SUCCESS:
+      state = {
+        ...state,
+        tripDetails: action.payload.tripDetails,
+        loading: false,
+      };
+      break;
+    case tripConstants.GET_TRIP_DETAILS_BY_ID_LOCATION_FAILURE:
+      state = {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+      };
       break;
     default:
   }

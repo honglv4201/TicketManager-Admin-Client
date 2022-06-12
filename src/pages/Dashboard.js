@@ -192,7 +192,7 @@ export const DashBoard = (props) => {
             </div>
           </div>
 
-          <div className="col-8">
+          <div className="col-12">
             <div className="card">
               <div className="card__header">
                 <h3>Trạng thái khách hàng</h3>
