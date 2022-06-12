@@ -25,12 +25,12 @@ export const ListTripTable = (props) => {
   const initTrip = () => {
     return {
       _id: "",
-      idVehicle: "",
+      idVehicle: {},
       idRoute: "",
       startDate: "1945-12-31T12:00:00.000Z",
       price: "",
       totalSeat: 0,
-      idSteersman: "",
+      idSteersman: {},
     };
   };
 
@@ -77,10 +77,10 @@ export const ListTripTable = (props) => {
   const handleModalShow = (iFlag, trip = []) => {
     if (iFlag === "Add") {
       setModalFlag("Add");
-      setModalTitle("Thêm chuyến xe");
+      setModalTitle("Thêm chuyến tàu");
     } else {
       setModalFlag("Edit");
-      setModalTitle("Sửa chuyến xe");
+      setModalTitle("Sửa chuyến tàu");
       setTrip(trip);
     }
     setModalShow(true);
@@ -93,7 +93,7 @@ export const ListTripTable = (props) => {
       props.reLoad();
       swal({
         title: "Thêm thành công",
-        text: "Bạn đã thêm chuyến xe thành công",
+        text: "Bạn đã thêm chuyến tàu thành công",
         icon: "success",
         button: "OK",
       });
@@ -102,7 +102,7 @@ export const ListTripTable = (props) => {
       props.reLoad();
       swal({
         title: "Sửa thành công",
-        text: "Bạn đã chuyến xe tuyến đường thành công",
+        text: "Bạn đã chuyến tàu tuyến đường thành công",
         icon: "success",
         button: "OK",
       });
@@ -125,7 +125,7 @@ export const ListTripTable = (props) => {
   const trips = {
     header: [
       "Ngày khởi hành",
-      "Biển số xe",
+      "Tàu phụ trách",
       "Số ghế",
       "Giá vé",
       "Trạng thái",
@@ -161,26 +161,26 @@ export const ListTripTable = (props) => {
     return 0;
   };
 
-  const findTotalSeatOfVehicle = (idVehicle) => {
-    for (const veh of listVehicle) {
-      if (veh._id === idVehicle) {
-        return veh.totalSeat;
-      }
-    }
-    return 0;
-  };
+  // const findTotalSeatOfVehicle = (idVehicle) => {
+  //   for (const veh of listVehicle) {
+  //     if (veh._id === idVehicle) {
+  //       return veh.totalSeat;
+  //     }
+  //   }
+  //   return 0;
+  // };
 
   const delTrip = (trip) => {
     let form = trip;
     swal({
       title: "Bạn chắc chắn xóa",
-      text: "Bạn có chắc sẽ xóa chuyến xe này không",
+      text: "Bạn có chắc sẽ xóa chuyến tàu này không",
       icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        swal("Chuyến xe đã được xóa thành công!", {
+        swal("Chuyến tàu đã được xóa thành công!", {
           icon: "success",
         });
         form.isActive = "no";
@@ -189,7 +189,7 @@ export const ListTripTable = (props) => {
           props.reLoad();
         }
       } else {
-        swal("Chuyến xe vẫn chưa bị xóa!");
+        swal("Chuyến tàu vẫn chưa bị xóa!");
       }
     });
   };
@@ -210,50 +210,75 @@ export const ListTripTable = (props) => {
     return total;
   };
 
-  const renderTrips = (trips) => {
+  // const findNameOfSteersman = (idUser) => {
+  //   let result = "";
+
+  //   for (let v of listVehicle) {
+  //     if (idVehicle === v._id) {
+  //       v.wagons.map((i) => {
+  //         if (i == "nmdh" || i == "ncdh") {
+  //           total += 64;
+  //         } else if (i == "nk4dh") total += 28;
+  //         else if (i == "nk6dh") total += 42;
+  //       });
+  //     }
+  //   }
+  //   return result;
+  // };
+
+  const renderTrips = (trips, steersmans) => {
     let myTrips = [];
     for (let trip of trips) {
-      myTrips.push(
-        <tr>
-          <td>{new Date(trip.startDate).toLocaleDateString("vi-VN")}</td>
-          <td>{trip.idVehicle.idTrain}</td>
-          <td>{countTotalSeat(trip.idVehicle._id)}</td>
-          <td>{findPriceOfTrip(trip._id)}</td>
-          <td>{getStatus(trip)}</td>
-          <td>
-            <button
-              className="edit"
-              onClick={() => {
-                handleModalShow("Edit", {
-                  _id: trip._id,
-                  idVehicle: trip.idVehicle._id,
-                  startDate: trip.startDate,
-                  idRoute: trip.idRoute,
-                  // price: findPriceOfTrip(trip._id),
-                  // totalSeat: trip.idVehicle.totalSeat,
-                });
-              }}
-              hidden={isDisable(trip)}
-            >
-              <i class="far fa-edit"></i>
-            </button>
-            <button
-              className="delete"
-              hidden={isDisable(trip)}
-              onClick={() => {
-                delTrip(trip);
-              }}
-            >
-              <i class="far fa-trash-alt"></i>
-            </button>
-            <Link to={`/trips/${trip._id}`}>
-              <button className="detail" type="button" onClick={() => {}}>
-                Chi tiết
-              </button>
-            </Link>
-          </td>
-        </tr>
-      );
+
+      for (let s of steersmans) {
+        console.log(trip.idSteersman, trip);
+        if (s._id === trip.idSteersman._id) {
+          myTrips.push(
+            <tr>
+              <td>{new Date(trip.startDate).toLocaleDateString("vi-VN")}</td>
+              <td>
+                SH: {trip.idVehicle.idTrain} - BS: {trip.idVehicle.numPlate}
+              </td>
+              <td>{countTotalSeat(trip.idVehicle._id)}</td>
+              <td>fix</td>
+              <td>{getStatus(trip)}</td>
+              <td>
+                <button
+                  className="edit"
+                  onClick={() => {
+                    handleModalShow("Edit", {
+                      _id: trip._id,
+                      idVehicle: trip.idVehicle._id,
+                      startDate: trip.startDate,
+                      idRoute: trip.idRoute,
+                      // price: findPriceOfTrip(trip._id),
+                      // totalSeat: trip.idVehicle.totalSeat,
+                    });
+                  }}
+                  hidden={isDisable(trip)}
+                >
+                  <i class="far fa-edit"></i>
+                </button>
+                <button
+                  className="delete"
+                  hidden={isDisable(trip)}
+                  onClick={() => {
+                    delTrip(trip);
+                  }}
+                >
+                  <i class="far fa-trash-alt"></i>
+                </button>
+                <Link to={`/trips/${trip._id}/informations`}>
+                  <button className="detail" type="button" onClick={() => {}}>
+                    Chi tiết
+                  </button>
+                </Link>
+              </td>
+            </tr>
+          );
+        }
+      }
+
     }
     return myTrips;
   };
@@ -269,14 +294,14 @@ export const ListTripTable = (props) => {
           <div className="col-12">
             <div className="card">
               <div className="card__header">
-                <h3>Các chuyến xe</h3>
+                <h3>Các chuyến tàu</h3>
                 <button
                   className="add-enterprise"
                   onClick={() => {
                     handleModalShow("Add");
                   }}
                 >
-                  Thêm chuyến xe
+                  Thêm chuyến tàu
                 </button>
                 <div className="ui-search">
                   <input
@@ -297,7 +322,7 @@ export const ListTripTable = (props) => {
                     }}
                   />
                   <label style={{ marginLeft: 10, fontSize: 18 }}>
-                    Hiển thị chuyến xe đã hoàn thành (đã hủy)
+                    Hiển thị chuyến tàu đã hoàn thành (đã hủy)
                   </label>
                 </div>
               </div>
@@ -307,8 +332,8 @@ export const ListTripTable = (props) => {
                   headData={trips.header}
                   renderHead={(item, ind) => renderHead(item, ind)}
                   render2Body={() =>
-                    renderTrips(listTrip).length > 0
-                      ? renderTrips(listTrip)
+                    renderTrips(listTrip, listSteersman).length > 0
+                      ? renderTrips(listTrip, listSteersman)
                       : "Không tìm thấy kết quả"
                   }
                 />

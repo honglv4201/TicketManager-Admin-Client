@@ -21,7 +21,7 @@ export const AdminBooking = (props) => {
           </div>
           <div className="info">
             <h2 className="enterprise">
-              Nhà xe: {state_tripDetails.trip.idVehicle.idEnterprise.name}
+              Hãng tàu: {state_tripDetails.trip.idVehicle.idEnterprise.name}
             </h2>
 
             <div className="detail-info">
@@ -53,7 +53,7 @@ export const AdminBooking = (props) => {
               </div>
               <div className="type-bus">
                 <i class="bx bx-label"></i>
-                <span>Loại xe: </span>
+                <span>Loại tàu: </span>
 
                 <span className="type">
                   {state_tripDetails.trip.idVehicle.quality}

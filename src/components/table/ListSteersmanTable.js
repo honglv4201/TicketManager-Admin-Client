@@ -47,7 +47,6 @@ export const ListSteersmanTable = (props) => {
     return {
       _id: "",
       idEnterprise: id_Enterprise,
-      position: "",
       firstName: "",
       lastName: "",
       email: "",
@@ -56,7 +55,6 @@ export const ListSteersmanTable = (props) => {
       password: "111111",
       gender: "",
       contactNumber: "",
-      idVehicle: "",
       idUser: "",
     };
   };
@@ -76,13 +74,11 @@ export const ListSteersmanTable = (props) => {
       setSteersman({
         _id: steersman._id,
         idEnterprise: steersman.idEnterprise,
-        position: steersman.position,
         firstName: steersman.idUser.firstName,
         lastName: steersman.idUser.lastName,
         email: steersman.idUser.email,
         contactNumber: steersman.idUser.contactNumber,
         gender: steersman.profile.gender,
-        idVehicle: steersman.idVehicle ? steersman.idVehicle._id : "",
         idUser: steersman.idUser._id,
       });
     }
@@ -141,14 +137,7 @@ export const ListSteersmanTable = (props) => {
   ];
 
   const steersmans = {
-    header: [
-      "Họ tên",
-      "Giới tính",
-      "Số điện thoại",
-      "Vị trí",
-      "Xe phụ trách",
-      "Tùy chọn",
-    ],
+    header: ["Họ tên", "Giới tính", "Số điện thoại", "Tùy chọn"],
     body: [],
   };
   const renderHead = (item, ind) => {
@@ -165,10 +154,6 @@ export const ListSteersmanTable = (props) => {
             </td>
             <td>{steersman.profile.gender === "Male" ? "Nam" : "Nữ"}</td>
             <td>{steersman.idUser.contactNumber}</td>
-            <td>{steersman.position}</td>
-            <td>
-              {steersman.idVehicle ? steersman.idVehicle.idTrain : "Trống"}
-            </td>
             <td>
               <button
                 className="edit"
@@ -317,7 +302,7 @@ export const ListSteersmanTable = (props) => {
                 }}
               />
 
-              <SelectBox
+              {/* <SelectBox
                 type="gender"
                 value={steersman.position}
                 onChange={(e) => {
@@ -336,7 +321,7 @@ export const ListSteersmanTable = (props) => {
                 }}
                 list={getListVehicle()}
                 title="Phương tiện điều khiển"
-              />
+              /> */}
             </div>
           </div>
 

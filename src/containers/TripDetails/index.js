@@ -85,6 +85,7 @@ export const TripDetails = (props) => {
   //   return null;
   // }
 
+
   const options = [];
   state_cities.cities.map((item) => {
     options.push({
@@ -92,6 +93,7 @@ export const TripDetails = (props) => {
       value: item.indexCity + 1,
     });
   });
+
 
   const handleFilter = (items) => {
     return (searchValue) => {
@@ -186,6 +188,7 @@ export const TripDetails = (props) => {
                   ).toLocaleDateString("vi-VN")}
                 </h2>
               </div>
+
 
               <div style={{ display: "none" }} className="quantity-info">
                 <div className="chair-number">

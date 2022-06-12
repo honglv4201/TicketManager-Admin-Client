@@ -150,7 +150,7 @@ export const ListRouteTable = (props) => {
     header: [
       "Nơi khởi hành",
       "Nơi đến",
-      "Nhà xe",
+      "Hãng tàu",
       "Giờ khởi hành",
       "Số giờ di chuyển",
       "Tùy chọn",
@@ -262,7 +262,7 @@ export const ListRouteTable = (props) => {
                 }}
                 list={getListEnterprise()}
                 type="EnterpriseSelect"
-                title="Nhà xe"
+                title="Hãng tàu"
               />
 
               <InputTitleLeft

@@ -88,7 +88,7 @@ export const DashBoard = (props) => {
   };
 
   const topEnterPrises = {
-    head: ["Nhà xe", "Vé bán", "Doanh thu"],
+    head: ["Hãng tàu", "Vé bán", "Doanh thu"],
     body: listByEnterprise.listEnterprises,
   };
 
@@ -176,7 +176,7 @@ export const DashBoard = (props) => {
           <div className="col-5">
             <div className="card">
               <div className="card__header">
-                <h3>Nhà xe</h3>
+                <h3>Hãng tàu</h3>
               </div>
               <div className="card__body">
                 <Table

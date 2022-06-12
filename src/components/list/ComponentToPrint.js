@@ -91,7 +91,7 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
 
               {/* <div className="row2">
                 <h1 className="txt-detail">Thông tin chi tiết</h1>
-                <h2>Nhà xe: {trip.idVehicle.idEnterprise.name}</h2>
+                <h2>Hãng tàu: {trip.idVehicle.idEnterprise.name}</h2>
                 <h2>
                   Tuyến đường: {trip.idRoute.startLocation} -{" "}
                   {trip.idRoute.endLocation}
@@ -178,7 +178,7 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
 
               {/* <div className="row2">
                 <h1 className="txt-detail">Thông tin chi tiết</h1>
-                <h2>Nhà xe: {trip.idVehicle.idEnterprise.name}</h2>
+                <h2>Hãng tàu: {trip.idVehicle.idEnterprise.name}</h2>
                 <h2>
                   Tuyến đường: {trip.idRoute.startLocation} -{" "}
                   {trip.idRoute.endLocation}
@@ -199,7 +199,7 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
           </div>
           // <div>
 
-          //   <h1>Nhà xe: {trip.idVehicle.idEnterprise.name}</h1>
+          //   <h1>Hãng tàu: {trip.idVehicle.idEnterprise.name}</h1>
           //   <h1>
           //     Tuyến đường: {trip.idRoute.startLocation} -{" "}
           //     {trip.idRoute.endLocation}

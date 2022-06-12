@@ -48,10 +48,10 @@ export const ListEnterpriseTable = (props) => {
   const handleModalShow = (iFlag, enterprise = []) => {
     if (iFlag === "Add") {
       setModalFlag("Add");
-      setModalTitle("Thêm nhà xe");
+      setModalTitle("Thêm hãng tàu");
     } else {
       setModalFlag("Edit");
-      setModalTitle("Sửa nhà xe");
+      setModalTitle("Sửa hãng tàu");
       setEnterprise(enterprise);
     }
     setModalShow(true);
@@ -65,7 +65,7 @@ export const ListEnterpriseTable = (props) => {
 
       swal({
         title: "Thêm thành công",
-        text: "Bạn đã thêm nhà xe thành công",
+        text: "Bạn đã thêm hãng tàu thành công",
         icon: "success",
         button: "OK",
       });
@@ -73,7 +73,7 @@ export const ListEnterpriseTable = (props) => {
       dispatch(EnterpriseAction.editEnterprise(form));
       swal({
         title: "Sửa thành công",
-        text: "Bạn đã sửa nhà xe thành công",
+        text: "Bạn đã sửa hãng tàu thành công",
         icon: "success",
         button: "OK",
       });
@@ -96,25 +96,25 @@ export const ListEnterpriseTable = (props) => {
     var form = selectedEnt;
     swal({
       title: "Bạn chắc chắn xóa",
-      text: "Bạn có chắc sẽ xóa nhà xe này không",
+      text: "Bạn có chắc sẽ xóa hãng tàu này không",
       icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        swal("Nhà xe đã được xóa thành công!", {
+        swal("Hãng tàu đã được xóa thành công!", {
           icon: "success",
         });
         form.isDeleted = "yes";
         dispatch(EnterpriseAction.editEnterprise(form));
       } else {
-        swal("Nhà xe vẫn chưa bị xóa!");
+        swal("Hãng tàu vẫn chưa bị xóa!");
       }
     });
   };
 
   const enterprises = {
-    header: ["Nhà xe", "Địa chỉ", "Hotline", "Tùy chọn"],
+    header: ["Hãng tàu", "Địa chỉ", "Hotline", "Tùy chọn"],
     body: [],
   };
   const renderOrderHead = (item, ind) => <th key={ind}>{item}</th>;
@@ -175,7 +175,7 @@ export const ListEnterpriseTable = (props) => {
           <div className="add-modal__body">
             <div className="input-enterprise-name">
               <InputTitleLeft
-                title="Tên nhà xe"
+                title="Tên hãng tàu"
                 value={enterprise.name}
                 placeholder={``}
                 onChange={(e) => {
@@ -228,14 +228,14 @@ export const ListEnterpriseTable = (props) => {
         <div className="col-12">
           <div className="card">
             <div className="card__header">
-              <h3>Quản lý nhà xe</h3>
+              <h3>Quản lý hãng tàu</h3>
               <button
                 className="add-enterprise"
                 onClick={() => {
                   handleModalShow("Add");
                 }}
               >
-                Thêm nhà xe
+                Thêm hãng tàu
               </button>
               <div className="ui-search">
                 <input

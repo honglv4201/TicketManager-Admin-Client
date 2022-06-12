@@ -49,6 +49,26 @@ export const RouteDetails = (props) => {
     return null;
   }
 
+  const getAllVehiclesOfEnterprise = (idEnterprise, vehicles) => {
+    let result = [];
+    for (let v of vehicles) {
+      if (v.idEnterprise === idEnterprise) {
+        result.push(v);
+      }
+    }
+    return result;
+  };
+
+  const getAllSteersmanOfEnterprise = (idEnterprise, steersmans) => {
+    let result = [];
+    for (let s of steersmans) {
+      if (s.idEnterprise === idEnterprise) {
+        result.push(s);
+      }
+    }
+    return result;
+  };
+
   const searchHandler = (searchTerm) => {
     setSearchTerm(searchTerm);
     if (searchTerm !== "") {
@@ -77,7 +97,7 @@ export const RouteDetails = (props) => {
           <img src={busImg} alt="" />
         </div>
         <div className="info">
-          <h1>Nhà Xe: {state_routeDetails.route.idEnterprise.name}</h1>
+          <h1>Hãng tàu: {state_routeDetails.route.idEnterprise.name}</h1>
           <p className="start-locate">
             Bắt đầu:{" "}
             {returnNameLocation(state_routeDetails.route.startLocation)}
@@ -98,9 +118,15 @@ export const RouteDetails = (props) => {
         listTrip={
           searchTerm.length < 1 ? state_routeDetails.trips : searchResults
         }
-        listVehicle={state_vehicle.vehicles}
+        listVehicle={getAllVehiclesOfEnterprise(
+          state_routeDetails.route.idEnterprise._id,
+          state_vehicle.vehicles
+        )}
         listTicket={state_ticketR.tickets}
-        listSteersman={state_Steersman.steersmans}
+        listSteersman={getAllSteersmanOfEnterprise(
+          state_routeDetails.route.idEnterprise._id,
+          state_Steersman.steersmans
+        )}
         idRoute={state_routeDetails.route._id}
         reLoad={loadRouteDetails}
         term={searchTerm}

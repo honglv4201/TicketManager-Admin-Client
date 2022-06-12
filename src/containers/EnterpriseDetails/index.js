@@ -103,7 +103,7 @@ export const EnterpriseDetails = (props) => {
           <img src={busImg} alt="" />
         </div>
         <div className="info">
-          <h1>Nhà xe {enterpriseDetails.enterprise.name}</h1>
+          <h1>Hãng tàu {enterpriseDetails.enterprise.name}</h1>
           <p>Địa chỉ: {enterpriseDetails.enterprise.address}</p>
           <p>Hotline: {enterpriseDetails.enterprise.hotline}</p>
         </div>
