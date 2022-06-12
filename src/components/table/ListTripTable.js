@@ -232,7 +232,6 @@ export const ListTripTable = (props) => {
   const renderTrips = (trips, steersmans) => {
     let myTrips = [];
     for (let trip of trips) {
-
       for (let s of steersmans) {
         if (s._id === trip.idSteersman._id) {
           myTrips.push(
@@ -273,7 +272,7 @@ export const ListTripTable = (props) => {
                 >
                   <i class="far fa-trash-alt"></i>
                 </button>
-                <Link to={`/trips/${trip._id}/informations`}>
+                <Link to={`/trips/${trip._id}`}>
                   <button className="detail" type="button" onClick={() => {}}>
                     Chi tiết
                   </button>
@@ -283,7 +282,6 @@ export const ListTripTable = (props) => {
           );
         }
       }
-
     }
     return myTrips;
   };
