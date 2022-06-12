@@ -229,6 +229,7 @@ export const ListTripTable = (props) => {
   const renderTrips = (trips, steersmans) => {
     let myTrips = [];
     for (let trip of trips) {
+
       for (let s of steersmans) {
         console.log(trip.idSteersman, trip);
         if (s._id === trip.idSteersman._id) {
@@ -277,6 +278,7 @@ export const ListTripTable = (props) => {
           );
         }
       }
+
     }
     return myTrips;
   };

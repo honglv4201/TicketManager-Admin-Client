@@ -7,9 +7,9 @@ import "./modalzoomticket.css";
  **/
 
 export const ModalZoomTicket = React.forwardRef((props, ref) => {
-  const ticketInfor = props.selected;
-  const tickets = props.tickets;
-  const trip = props.trip;
+  // const ticketInfor = props.selected;
+  // const tickets = props.tickets;
+  // const trip = props.trip;
   const handleCloseModal = () => {
     ref.current.classList.toggle("active");
   };
@@ -20,9 +20,9 @@ export const ModalZoomTicket = React.forwardRef((props, ref) => {
         <div className="zoom-modal active">
           <div className="zoom-modal__header">
             Thông tin vé{" "}
-            <span className="number-ticket">
+            {/* <span className="number-ticket">
               <h2>Số ghế {ticketInfor.seatNumber}</h2>
-            </span>
+            </span> */}
           </div>
 
           <div className="zoom-modal__body">
@@ -39,7 +39,7 @@ export const ModalZoomTicket = React.forwardRef((props, ref) => {
                   <div className="col2x">
                     <p className="id">5TVXB-32325</p>
 
-                    <p className="booking-date">
+                    {/* <p className="booking-date">
                       {" "}
                       {new Intl.DateTimeFormat("vi", {
                         month: "long",
@@ -60,7 +60,7 @@ export const ModalZoomTicket = React.forwardRef((props, ref) => {
                           " " +
                           ticketInfor.idUser.lastName
                         : ticketInfor.name}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export const ModalZoomTicket = React.forwardRef((props, ref) => {
                 <h2>Nơi trả</h2>
                 <h2>Khởi hành</h2>
               </div>
-              <div className="colx2-right">
+              {/* <div className="colx2-right">
                 <p> {trip.idVehicle.idEnterprise.name}</p>
                 <p>
                   {" "}
@@ -84,8 +84,9 @@ export const ModalZoomTicket = React.forwardRef((props, ref) => {
                 <p> {ticketInfor.getOn}</p>
                 <p>{ticketInfor.getOff}</p>
                 <p>{trip.idRoute.startTime} </p>
-              </div>
-              {/* <h2>Hãng tàu: {trip.idVehicle.idEnterprise.name}</h2>
+
+              {/* <h2>Nhà xe: {trip.idVehicle.idEnterprise.name}</h2>
+
               <h2>
                 Tuyến đường: {trip.idRoute.startLocation} -{" "}
                 {trip.idRoute.endLocation}

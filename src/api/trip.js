@@ -21,6 +21,18 @@ const TripApi = {
 
     return res;
   },
+  getDetailsByIdLocation: async (tripId, startIndex, endIndex) => {
+    const res = await axios.post(`/trip/${tripId}/informations`, {
+      startIndex,
+      endIndex,
+    });
+    console.log(
+      "🚀 ~ file: trip.js ~ line 29 ~ getDetailsByIdLocation: ~ res",
+      res
+    );
+
+    return res;
+  },
 };
 
 export default TripApi;

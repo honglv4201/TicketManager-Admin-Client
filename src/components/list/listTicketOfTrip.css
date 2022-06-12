@@ -1,0 +1,123 @@
+.detail-ticket-modal {
+  position: fixed;
+  inset: 0px;
+  background: rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000000;
+}
+
+.detail-ticket-modal .detail-content {
+  min-width: 700px;
+  height: 400px;
+  overflow: hidden;
+  background: white;
+  border-radius: 12px;
+  position: relative;
+  animation: openModal 0.3s var(--transition-cubic);
+}
+.detail-ticket-modal .close {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  z-index: 5000;
+  padding: 14px 20px;
+  font-size: 20px;
+}
+.detail-ticket-modal .close:hover {
+  border-radius: 8px;
+  background: rgb(239, 239, 239);
+  cursor: pointer;
+}
+
+@keyframes openModal {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.add-modal__wrapper.active {
+  display: grid;
+}
+
+.detail-ticket-modal .title {
+  margin-top: 25px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
+.detail-ticket-modal .list-items {
+  margin-top: 20px;
+  padding: 20px;
+  overflow: scroll;
+  height: 400px;
+  background: rgb(255, 255, 255);
+  padding-bottom: 20px;
+}
+.detail-ticket-modal .item-ticket {
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid rgb(239, 239, 239);
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.detail-ticket-modal .item-ticket > div {
+  padding-right: 16px;
+}
+.detail-ticket-modal .item-ticket_content {
+  margin-top: 10px;
+}
+.detail-ticket-modal .item-ticket .header-item {
+  margin-bottom: 24px;
+  color: rgb(0, 129, 161);
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 6px;
+}
+.detail-ticket-modal .content {
+}
+.detail-ticket-modal .content .btn-book {
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: rgb(0, 129, 161);
+  color: white;
+  text-align: center;
+  margin: 0 30px;
+}
+.detail-ticket-modal .content .btn-book:hover {
+  cursor: pointer;
+  background: rgb(1, 102, 128);
+}
+.detail-content .item-ticket_content .info {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.detail-content .item-ticket_content .info > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.detail-content .item-ticket_content .name {
+  margin-right: 8px;
+  opacity: 0.6;
+  font-size: 14px;
+  font-weight: bold;
+}
+.detail-content .flexitem {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.detail-ticket-modal .flex {
+  display: flex;
+  gap: 4px;
+}
