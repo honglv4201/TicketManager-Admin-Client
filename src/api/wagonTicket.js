@@ -7,6 +7,14 @@ const wagonTicketApi = {
     });
     return res;
   },
+
+  update: async (form) => {
+    const res = await axios.put(`/wagonTicket/update`, {
+      ...form,
+    });
+
+    return res;
+  },
 };
 
 export default wagonTicketApi;

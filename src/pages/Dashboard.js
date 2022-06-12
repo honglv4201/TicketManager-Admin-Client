@@ -23,7 +23,7 @@ export const DashBoard = (props) => {
     dispatch(AnalyticsAction.getCurrentDate());
     dispatch(AnalyticsAction.getCurrentByEnterprises());
     dispatch(AnalyticsAction.getCurrentByEnterprisesList());
-    // dispatch(AnalyticsAction.getAllName());
+    dispatch(AnalyticsAction.getAllName());
     dispatch(AnalyticsAction.getLastOrder());
   }, []);
 

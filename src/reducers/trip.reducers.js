@@ -19,6 +19,25 @@ const rebuildAddTrip = (trips, trip) => {
 
 export default (state = initState, action) => {
   switch (action.type) {
+    case tripConstants.GET_ALL_TRIP_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
+    case tripConstants.GET_ALL_TRIP_SUCCESS:
+      state = {
+        ...state,
+        trips: action.payload.trips,
+        loading: false,
+      };
+      break;
+    case tripConstants.GET_ALL_TRIP_FAILURE:
+      state = {
+        ...state,
+        error: action.payload.error,
+      };
+      break;
     case tripConstants.ADD_NEW_TRIP_REQUEST:
       state = {
         ...state,

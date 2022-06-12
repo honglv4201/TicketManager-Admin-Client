@@ -26,7 +26,7 @@ const TicketAction = {
 
   addTicketOfTrip: (form) => {
     return async (dispatch) => {
-      var newForm = { idTrip: form._id, price: form.price };
+      var newForm = { idTrip: form._id };
 
       dispatch({ type: ticketConstants.ADD_NEW_TICKET_REQUEST });
 
@@ -36,6 +36,7 @@ const TicketAction = {
         dispatch(
           wagonTicketAction.addWagonTicket({
             ...form,
+            price: form.fixed_price,
           })
         );
 

@@ -54,16 +54,16 @@ export const UserDetail = (props) => {
   );
   useEffect(() => {
     axios
-      .get(`http://localhost:2000/api/user/${userId}/info`)
-      .then(function(response) {
+      .get(`http://localhost:2000/api/user/${userId}`)
+      .then(function (response) {
         return response.data;
       })
-      .then(function(data) {
+      .then(function (data) {
         const items = data;
         setCustomer(items);
       });
     //loadUserDetail();
-    dispatch(getAll());
+    // dispatch(getAll());
   }, []);
 
   /*   const loadUserDetail = () => {

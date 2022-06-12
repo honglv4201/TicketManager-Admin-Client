@@ -1,28 +1,54 @@
 import React, { useEffect, useState } from "react";
 import { Layout } from "../components/Layout";
 import "./rule.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import avatarImg from "../asset/img/user.jpg";
 import { ReportEnterpriseTable } from "../components/table/ReportEnterpriseTable";
 import AuthAction from "../actions/auth.actions";
+import TripAction from "../actions/trip.actions";
+import wagonTicketAction from "../actions/wagonTicket.action";
 export const Rules = () => {
   const dispatch = useDispatch();
 
   const logout = () => {
     dispatch(AuthAction.signout());
   };
+
   const [rules, setRules] = useState({
     book: 0,
     cancel: 0,
     max: 0,
+    coefficientNK4DH: 0,
+    coefficientNK6DH: 0,
+    coefficientNMDH: 0,
   });
+
+  const [wagonTicket, setWagonTicket] = useState({
+    _id: "",
+    idTicket: "",
+    numOfWagon: 0,
+    wagon: "",
+    price: 0,
+  });
+
   const [changeState, setChangeState] = useState(false);
+
+  const listTrip = useSelector((state) => state.trip.trips);
+
+  const updateWagonTicket = (idTrip, fixed_price) => {
+    dispatch(wagonTicketAction.editWagonTicket({ idTrip, fixed_price }));
+  };
+
   const handleSubmitChangeRegulation = () => {
     axios.put(`http://localhost:2000/api/rule/629f47b2ad18e2f9b52514dd`, rules);
+    for (let t of listTrip) {
+      updateWagonTicket(t._id, t.fixed_price);
+    }
     alert("Lưu thành công");
     setChangeState(false);
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRules({
@@ -31,6 +57,7 @@ export const Rules = () => {
     });
     setChangeState(true);
   };
+
   useEffect(() => {
     axios
       .get(`http://localhost:2000/api/rule`)
@@ -43,9 +70,14 @@ export const Rules = () => {
           book: items[0].book,
           cancel: items[0].cancel,
           max: items[0].max,
+          coefficientNK4DH: items[0].coefficientNK4DH,
+          coefficientNK6DH: items[0].coefficientNK6DH,
+          coefficientNMDH: items[0].coefficientNMDH,
         });
       });
+    dispatch(TripAction.getAllTrip());
   }, []);
+
   return (
     <Layout sidebar>
       <div className="container rulepage">
@@ -146,6 +178,36 @@ export const Rules = () => {
               type="number"
               name="max"
               value={rules.max}
+              onChange={handleChange}
+              min="1"
+            />
+          </div>
+          <div className="session-row">
+            <span className="title"> Hệ số khoang Ngồi mềm điều hòa</span>
+            <input
+              type="number"
+              name="coefficientNMDH"
+              value={rules.coefficientNMDH}
+              onChange={handleChange}
+              min="1"
+            />
+          </div>
+          <div className="session-row">
+            <span className="title"> Hệ số khoang nằm 4 điều hòa</span>
+            <input
+              type="number"
+              name="coefficientNK4DH"
+              value={rules.coefficientNK4DH}
+              onChange={handleChange}
+              min="1"
+            />
+          </div>
+          <div className="session-row">
+            <span className="title"> Hệ số khoang nằm 6 điều hòa</span>
+            <input
+              type="number"
+              name="coefficientNK6DH"
+              value={rules.coefficientNK6DH}
               onChange={handleChange}
               min="1"
             />

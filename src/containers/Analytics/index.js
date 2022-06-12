@@ -6,10 +6,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../../asset/css/containers-css/Analytics.css";
-import Chart from "react-apexcharts";
-import { Doughnut } from "react-chartjs-2";
+import ChartJs from "react-apexcharts";
+import { Chart, Tooltip, Title, ArcElement, Legend } from "chart.js";
+import { Doughnut, Pie } from "react-chartjs-2";
 import { ReportEnterpriseTable } from "../../components/table/ReportEnterpriseTable";
 import AnalyticsAction from "../../actions/analytics.actions";
+Chart.register(Tooltip, Title, ArcElement, Legend);
 
 /**
  * @author
@@ -17,6 +19,21 @@ import AnalyticsAction from "../../actions/analytics.actions";
  **/
 
 export const Analytics = (props) => {
+  const dispatch = useDispatch();
+
+  const analytics = useSelector((state) => state.analytics);
+  const { totalTicket, totalSale, totalNewUser, totalCanceledTicket } =
+    analytics;
+
+  const chart = useSelector((state) => state.chart);
+  const { listTicket, listSale } = chart;
+
+  const newUser = useSelector((state) => state.newUser);
+  const { listNewUser } = newUser;
+
+  const ticket = useSelector((state) => state.ticket);
+  const { donutData } = ticket;
+
   var today = new Date();
 
   const [month, setMonth] = useState(today.getMonth() + 1);
@@ -28,14 +45,17 @@ export const Analytics = (props) => {
 
   var names = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"];
 
+  var names2 = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+
   var days = [];
   while (date.getMonth() === monthIndex) {
-    days.push(date.getDate() + "-" + names[date.getDay()]);
-    //days.push(date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear());
+    // days.push(date.getDate() + "-" + names[date.getDay()]);
+    days.push(names2[date.getDay()] + "-" + date.getDate());
+    // days.push(
+    //   date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear()
+    // );
     date.setDate(date.getDate() + 1);
   }
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(AnalyticsAction.getTotalTicket_Sale({ month, year }));
@@ -52,19 +72,17 @@ export const Analytics = (props) => {
     // dispatch(AnalyticsAction.getTicketCanceled({ month, year }));
   };
 
-  const analytics = useSelector((state) => state.analytics);
-
-  const { totalTicket, totalSale, totalNewUser, totalCanceledTicket } =
-    analytics;
-
-  const chart = useSelector((state) => state.chart);
-  const { listTicket, listSale } = chart;
-
-  const newUser = useSelector((state) => state.newUser);
-  const { listNewUser } = newUser;
-
-  const ticket = useSelector((state) => state.ticket);
-  const { donutData } = ticket;
+  const data = {
+    labels: ["Vé hủy", "Vé đặt"],
+    datasets: [
+      {
+        label: "My First Dataset",
+        data: [totalTicket, totalCanceledTicket],
+        backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)"],
+        hoverOffset: 4,
+      },
+    ],
+  };
 
   const chartOptions = {
     series: [
@@ -161,22 +179,6 @@ export const Analytics = (props) => {
     },
   };
 
-  const data = {
-    labels: ["Red", "Blue", "Yellow"],
-    datasets: [
-      {
-        label: "My First Dataset",
-        data: [300, 50, 100],
-        backgroundColor: [
-          "rgb(255, 99, 132)",
-          "rgb(54, 162, 235)",
-          "rgb(255, 205, 86)",
-        ],
-        hoverOffset: 4,
-      },
-    ],
-  };
-
   return (
     <Layout sidebar>
       <div>
@@ -225,13 +227,12 @@ export const Analytics = (props) => {
 
         <div className="col-12">
           <div className="chart">
-            <Chart
+            <ChartJs
               options={chartOptions.options}
               series={chartOptions.series}
             />
           </div>
         </div>
-
         {/* <div className="chart">
         <div className="chart">
           <Chart options={chartOptions.options} series={chartOptions.series} />
@@ -261,7 +262,7 @@ export const Analytics = (props) => {
         <div className="row">
           <div className="col-8">
             <div className="chart">
-              <Chart
+              <ChartJs
                 options={chartOptions1.options}
                 series={chartOptions1.series}
               />
@@ -270,7 +271,7 @@ export const Analytics = (props) => {
           <div className="col-4">
             <div className="chart">
               <b> Thống kê vé </b>
-              {/* <Doughnut data={data}></Doughnut> */}
+              <Doughnut data={data}> </Doughnut>
             </div>
           </div>
         </div>

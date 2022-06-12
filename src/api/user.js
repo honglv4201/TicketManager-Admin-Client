@@ -15,7 +15,7 @@ const UserApi = {
   },
 
   getById: async (userId) => {
-    const res = await axios.get(`/user/${userId}/info`);
+    const res = await axios.get(`/user/${userId}`);
 
     return res;
   },

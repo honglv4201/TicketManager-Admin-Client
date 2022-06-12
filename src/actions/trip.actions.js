@@ -1,6 +1,7 @@
 import TripApi from "../api/trip";
 import { tripConstants } from "./constants";
 import TicketAction from "./ticket.actions";
+import wagonTicketAction from "./wagonTicket.action";
 
 const TripAction = {
   addTrip: (form) => {
@@ -32,6 +33,8 @@ const TripAction = {
       const res = await TripApi.edit(form);
 
       if (res.status === 200) {
+        dispatch(wagonTicketAction.editWagonTicket(form));
+
         dispatch({
           type: tripConstants.EDIT_TRIP_SUCCESS,
           payload: { trip: res.data },
@@ -65,6 +68,30 @@ const TripAction = {
       } catch (error) {
         dispatch({
           type: tripConstants.GET_TRIP_DETAILS_BY_ID_FAILURE,
+          payload: { error: res.data.error },
+        });
+      }
+    };
+  },
+
+  getAllTrip: (payload) => {
+    return async (dispatch) => {
+      dispatch({
+        type: tripConstants.GET_ALL_TRIP_REQUEST,
+      });
+
+      const res = await TripApi.getAll();
+
+      try {
+        if (res.status === 200) {
+          dispatch({
+            type: tripConstants.GET_ALL_TRIP_SUCCESS,
+            payload: { trips: res.data },
+          });
+        }
+      } catch (error) {
+        dispatch({
+          type: tripConstants.GET_ALL_TRIP_FAILURE,
           payload: { error: res.data.error },
         });
       }

@@ -28,7 +28,7 @@ export const ListTripTable = (props) => {
       idVehicle: {},
       idRoute: "",
       startDate: "1945-12-31T12:00:00.000Z",
-      price: "",
+      fixed_price: 0,
       totalSeat: 0,
       idSteersman: {},
     };
@@ -67,7 +67,7 @@ export const ListTripTable = (props) => {
   }, [props.listTrip]);
 
   const checkEditData = () => {
-    if (trip.idVehicle && trip.startDate && trip.price) {
+    if (trip.idVehicle && trip.startDate && trip.fixed_price) {
       setEditData(true);
     } else {
       setEditData(false);
@@ -127,7 +127,7 @@ export const ListTripTable = (props) => {
       "Ngày khởi hành",
       "Tàu phụ trách",
       "Số ghế",
-      "Giá vé",
+      "Tài xế",
       "Trạng thái",
       "Tùy chọn",
     ],
@@ -154,7 +154,7 @@ export const ListTripTable = (props) => {
 
   const findPriceOfTrip = (idTrip) => {
     for (const tic of listTicket) {
-      if (tic.idTrip === idTrip) {
+      if (tic.idTicket === idTrip) {
         return tic.price;
       }
     }
@@ -230,7 +230,6 @@ export const ListTripTable = (props) => {
     let myTrips = [];
     for (let trip of trips) {
       for (let s of steersmans) {
-        console.log(trip.idSteersman, trip);
         if (s._id === trip.idSteersman._id) {
           myTrips.push(
             <tr>
@@ -239,7 +238,9 @@ export const ListTripTable = (props) => {
                 SH: {trip.idVehicle.idTrain} - BS: {trip.idVehicle.numPlate}
               </td>
               <td>{countTotalSeat(trip.idVehicle._id)}</td>
-              <td>fix</td>
+              <td>
+                {s.idUser.firstName} {s.idUser.lastName}
+              </td>
               <td>{getStatus(trip)}</td>
               <td>
                 <button
@@ -250,7 +251,8 @@ export const ListTripTable = (props) => {
                       idVehicle: trip.idVehicle._id,
                       startDate: trip.startDate,
                       idRoute: trip.idRoute,
-                      // price: findPriceOfTrip(trip._id),
+                      idSteersman: trip.idSteersman._id,
+                      fixed_price: trip.fixed_price ? trip.fixed_price : 0,
                       // totalSeat: trip.idVehicle.totalSeat,
                     });
                   }}
@@ -376,12 +378,13 @@ export const ListTripTable = (props) => {
               />
               <InputTitleLeft
                 title="Giá vé"
-                value={trip.price}
+                value={trip.fixed_price}
                 placeholder={``}
                 onChange={(e) => {
-                  setTrip({ ...trip, price: e.target.value });
+                  setTrip({ ...trip, fixed_price: parseInt(e.target.value) });
                   checkEditData();
                 }}
+                type="Number"
               />
               <SelectBox
                 value={trip.idSteersman}

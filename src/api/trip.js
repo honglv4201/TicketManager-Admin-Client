@@ -21,6 +21,12 @@ const TripApi = {
 
     return res;
   },
+
+  getAll: async () => {
+    const res = await axios.get(`/trip`);
+
+    return res;
+  },
 };
 
 export default TripApi;

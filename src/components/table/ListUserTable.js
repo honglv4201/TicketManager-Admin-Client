@@ -46,7 +46,13 @@ export const ListUserTable = (props) => {
           <td>
             {user.firstName} {user.lastName}
           </td>
-          <td>{user.profile[0].gender === "Male" ? "Nam" : "Nữ"}</td>
+          <td>
+            {user.profile[0].gender
+              ? user.profile[0].gender === "Male"
+                ? "Nam"
+                : "Nữ"
+              : ""}
+          </td>
           <td>{user.email}</td>
           <td>{user.contactNumber}</td>
           <td>
@@ -72,7 +78,7 @@ export const ListUserTable = (props) => {
               </Button>
             </Link> */}
 
-            <Link to={`user/${user._id}/info`}>
+            <Link to={`/user/${user._id}`}>
               <button className="detail" onClick={() => {}}>
                 Chi tiết
               </button>

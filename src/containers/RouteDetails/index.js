@@ -27,10 +27,10 @@ export const RouteDetails = (props) => {
   // event handle
   useEffect(() => {
     loadRouteDetails();
-
     dispatch(RouteAction.getAllRoutes());
     dispatch(VehicleAction.getAllVehicles());
     dispatch(SteersmanAction.getAllSteersman());
+    dispatch(TicketAction.getAllTickets());
   }, []);
   const { routeId } = useParams();
   const loadRouteDetails = () => {

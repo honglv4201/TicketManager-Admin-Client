@@ -2,7 +2,7 @@ import axios from "../helpers/axios";
 
 const TicketApi = {
   getAll: async () => {
-    const res = await axios.get(`ticket`);
+    const res = await axios.get(`wagonTicket`);
 
     return res;
   },

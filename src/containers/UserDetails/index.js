@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import UserAction from "../../actions/user.actions";
 import { UserDetail } from "../../components/customer/UserDetail";
 import { Layout } from "../../components/Layout";
@@ -16,8 +17,8 @@ export const UserDetails = (props) => {
     loadUserDetail();
   }, []);
 
+  const { userId } = useParams;
   const loadUserDetail = () => {
-    const { userId } = props.match.params;
     const payload = {
       params: {
         userId,
@@ -26,6 +27,7 @@ export const UserDetails = (props) => {
     dispatch(UserAction.getUserDetailById(payload));
   };
   const state_userDetail = useSelector((state) => state.user.userDetail);
+  console.log(state_userDetail);
   return (
     <>
       {state_userDetail.role === "admin" ? (
