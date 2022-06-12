@@ -265,9 +265,27 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.trip-detail__info .select .resetGeneral {
-  width: 100px;
+.trip-detail__info .select.disable {
+  opacity: 0.4;
+  user-select: none;
+  position: relative;
+}
+.trip-detail__info .select.disable:after {
+  content: "";
+  display: block;
+  background: #000;
+  z-index: 20;
+  background-color: transparent;
+
+  position: absolute;
+  inset: 0px;
+}
+.trip-detail__info .resetGeneral {
+  margin-top: 40px;
+  margin-left: 20px;
+  width: fit-content;
   height: 35px;
+  padding: 0 10px;
   border-radius: 8px;
   text-align: center;
   display: flex;
@@ -276,13 +294,37 @@
   color: rgb(0, 150, 187);
   box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);
 }
-.trip-detail__info .select .resetGeneral:hover {
+.trip-detail__info .resetGeneral:hover {
   background: rgba(237, 237, 237, 0.464);
   cursor: pointer;
 }
-.trip-detail__info .select .resetGeneral.active {
+.trip-detail__info .resetGeneral.active {
   background: rgb(0, 150, 187);
   color: white;
+}
+.loadingComponent {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingComponent .loading-content {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  border: 6px solid rgb(0, 150, 187);
+  border-right-color: transparent;
+  animation: spin 0.5s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* select box style */
@@ -504,4 +546,22 @@
   padding: 16px;
   text-align: center;
   color: #888;
+}
+
+/* detail ticketCSS */
+.card1 .btn-detail {
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: rgb(0, 150, 187);
+  color: white;
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 10px;
+  margin-left: auto;
+  cursor: pointer;
+  margin-top: 4px;
+}
+.card1 .btn-detail:hover {
+  cursor: pointer;
+  background: rgb(0, 129, 161);
 }

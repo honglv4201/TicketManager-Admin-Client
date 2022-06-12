@@ -84,12 +84,18 @@ const TripAction = {
       );
       try {
         if (res.status === 200) {
-          console.log("sdasdasdsafdsaf");
-          console.log("sdasdasdsafdsaf", res.data);
-          dispatch({
-            type: tripConstants.GET_TRIP_DETAILS_BY_ID_LOCATION_SUCCESS,
-            payload: { tripDetails: res.data },
-          });
+          if (!res.data.success) {
+            dispatch({
+              type: tripConstants.GET_TRIP_DETAILS_BY_ID_LOCATION_FAILURE,
+              payload: { error: res.data.message },
+            });
+          } else {
+            dispatch({
+              type: tripConstants.GET_TRIP_DETAILS_BY_ID_LOCATION_SUCCESS,
+              payload: { tripDetails: res.data },
+            });
+          }
+        } else {
         }
       } catch (error) {
         dispatch({

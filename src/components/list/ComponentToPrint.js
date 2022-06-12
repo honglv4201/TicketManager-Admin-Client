@@ -14,13 +14,13 @@ import logoImg from "../../asset/img/logo.png";
 //   // the node you want to be the root of the print (usually the outer most node in the ComponentToPrint)
 //   // https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components
 export const ComponentToPrint = React.forwardRef((props, ref) => {
-  const ticketInfor = props.selected;
-  const tickets = props.tickets;
-  const trip = props.trip;
+  // const ticketInfor = props.selected;
+  // const tickets = props.tickets;
+  // const trip = props.trip;
   return (
     <>
       <h1 ref={ref} className="printpage">
-        {ticketInfor.type === "OnlineTicket" ? (
+        {"ticketInfor.type" === "OnlineTicket" ? (
           <div>
             <div className="logo">
               <img src={logoImg} alt="" />
@@ -58,38 +58,38 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
                     <div className="col2x">
                       <p className="id">5TVXB-32325</p>
                       <p className="date-create">
-                        {" "}
+                        {/* {" "}
                         {new Intl.DateTimeFormat("vi", {
                           month: "long",
                           day: "2-digit",
                           year: "numeric",
-                        }).format(new Date())}
+                        }).format(new Date())} */}
                       </p>
                       <p className="booking-date">
-                        {" "}
+                        {/* {" "}
                         {new Intl.DateTimeFormat("vi", {
                           month: "long",
                           day: "2-digit",
                           year: "numeric",
-                        }).format(new Date(trip.startDate))}
+                        }).format(new Date(trip.startDate))} */}
                       </p>
                       <p className="total-money">
                         {" "}
-                        {tickets.price.toLocaleString("it-IT", {
+                        {/* {tickets.price.toLocaleString("it-IT", {
                           style: "currency",
                           currency: "VND",
-                        })}
+                        })} */}
                       </p>
                       <p className="customer-name">
-                        {ticketInfor.idUser.firstName}{" "}
-                        {ticketInfor.idUser.lastName}
+                        {/* {ticketInfor.idUser.firstName}{" "}
+                        {ticketInfor.idUser.lastName} */}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="row2">
+              {/* <div className="row2">
                 <h1 className="txt-detail">Thông tin chi tiết</h1>
                 <h2>Nhà xe: {trip.idVehicle.idEnterprise.name}</h2>
                 <h2>
@@ -103,7 +103,7 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
                 <h2 class="card1-text">Nơi trả: {ticketInfor.getOff}</h2>
 
                 <h2>Giờ khởi hành: {trip.idRoute.startTime} </h2>
-              </div>
+              </div> */}
               <div className="row3">
                 <h2>Ngày: 15 tháng 11 năm 2021</h2>
                 <h2> Người bán vé : Lam Hong</h2>
@@ -145,7 +145,7 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
                       <p>Tổng tiền</p>
                       <p>Tên khách hàng</p>
                     </div>
-                    <div className="col2x">
+                    {/* <div className="col2x">
                       <p className="id">5TVXB-32325</p>
                       <p className="date-create">
                         {" "}
@@ -171,12 +171,12 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
                         })}
                       </p>
                       <p className="customer-name">{ticketInfor.name}</p>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
 
-              <div className="row2">
+              {/* <div className="row2">
                 <h1 className="txt-detail">Thông tin chi tiết</h1>
                 <h2>Nhà xe: {trip.idVehicle.idEnterprise.name}</h2>
                 <h2>
@@ -190,7 +190,7 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
                 <h2 class="card1-text">Nơi trả: {ticketInfor.getOff}</h2>
 
                 <h2>Giờ khởi hành: {trip.idRoute.startTime} </h2>
-              </div>
+              </div> */}
               <div className="row3">
                 <h2>Ngày: 15 tháng 11 năm 2021</h2>
                 <h2> Người bán vé : Lam Hong</h2>

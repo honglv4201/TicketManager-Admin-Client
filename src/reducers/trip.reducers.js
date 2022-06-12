@@ -75,6 +75,7 @@ export default (state = initState, action) => {
         ...state,
         loading: false,
         error: action.payload.error,
+        tripDetails: {},
       };
       break;
     default:

@@ -22,18 +22,18 @@ export const FunctionBar = (props) => {
     <div className="function-bar__ticket-list">
       <div style={{ display: "none" }}>
         <ComponentToPrint
-          selected={props.selected}
-          tickets={props.tickets}
-          trip={props.trip}
+          // selected={props.selected}
+          // tickets={props.tickets}
+          // trip={props.trip}
           ref={componentRef}
         />
       </div>
 
       <ModalZoomTicket
-        Ticket
-        selected={props.selected}
-        tickets={props.tickets}
-        trip={props.trip}
+        // Ticket
+        // selected={props.selected}
+        // tickets={props.tickets}
+        // trip={props.trip}
         ref={componentRef1}
       />
 
