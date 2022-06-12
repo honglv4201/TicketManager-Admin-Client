@@ -232,6 +232,7 @@ export const ListTripTable = (props) => {
   const renderTrips = (trips, steersmans) => {
     let myTrips = [];
     for (let trip of trips) {
+
       for (let s of steersmans) {
         if (s._id === trip.idSteersman._id) {
           myTrips.push(
@@ -282,6 +283,7 @@ export const ListTripTable = (props) => {
           );
         }
       }
+
     }
     return myTrips;
   };

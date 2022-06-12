@@ -24,6 +24,17 @@ const TripApi = {
 
   getAll: async () => {
     const res = await axios.get(`/trip`);
+  },
+
+  getDetailsByIdLocation: async (tripId, startIndex, endIndex) => {
+    const res = await axios.post(`/trip/${tripId}/informations`, {
+      startIndex,
+      endIndex,
+    });
+    console.log(
+      "🚀 ~ file: trip.js ~ line 29 ~ getDetailsByIdLocation: ~ res",
+      res
+    );
 
     return res;
   },

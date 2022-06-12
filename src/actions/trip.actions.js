@@ -97,6 +97,42 @@ const TripAction = {
       }
     };
   },
+
+  getTripDetailsByIdAndLocation: (payload) => {
+    console.log("sdasdasdsafdsaf");
+    return async (dispatch) => {
+      dispatch({
+        type: tripConstants.GET_TRIP_DETAILS_BY_ID_LOCATION_REQUEST,
+      });
+      const { startIndex, endIndex, tripId } = payload;
+      const res = await TripApi.getDetailsByIdLocation(
+        tripId,
+        startIndex,
+        endIndex
+      );
+      try {
+        if (res.status === 200) {
+          if (!res.data.success) {
+            dispatch({
+              type: tripConstants.GET_TRIP_DETAILS_BY_ID_LOCATION_FAILURE,
+              payload: { error: res.data.message },
+            });
+          } else {
+            dispatch({
+              type: tripConstants.GET_TRIP_DETAILS_BY_ID_LOCATION_SUCCESS,
+              payload: { tripDetails: res.data },
+            });
+          }
+        } else {
+        }
+      } catch (error) {
+        dispatch({
+          type: tripConstants.GET_TRIP_DETAILS_BY_ID_LOCATION_FAILURE,
+          payload: { error: error },
+        });
+      }
+    };
+  },
 };
 
 export default TripAction;

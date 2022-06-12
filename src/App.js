@@ -47,7 +47,7 @@ const AppRoute = () => {
     { path: "/user/:userId", element: <UserDetails /> },
     { path: "/user/:userId/userdetail", element: <UserDetails /> },
     { path: "/routes/:routeId", element: <RouteDetails /> },
-    { path: "/trips/:tripId/informations", element: <TripDetails /> },
+    { path: "/trips/:tripId", element: <TripDetails /> },
     { path: "/trips/:tripId/tickets", element: <OfflineTicket /> },
     { path: "/routes", element: <WayRouters /> },
     { path: "/enterprises", element: <Enterprise /> },
