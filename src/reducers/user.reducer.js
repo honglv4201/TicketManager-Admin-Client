@@ -44,6 +44,7 @@ export default (state = initState, action) => {
       };
       break;
     case userConstants.GET_USER_DETAIL_BY_ID_SUCCESS:
+      console.log(action.payload);
       state = {
         ...state,
         userDetail: action.payload.userDetail,

@@ -16,7 +16,7 @@ export const AdminDetailTable = (props) => {
     (state) => state.offlineticket.offlineTickets
   );
   useEffect(() => {
-    dispatch(OfflineTicketAction.getAllOfflineTicket());
+    // dispatch(OfflineTicketAction.getAllOfflineTicket());
   }, []);
 
   const header = [

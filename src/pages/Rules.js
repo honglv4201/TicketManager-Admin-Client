@@ -24,20 +24,12 @@ export const Rules = () => {
     coefficientNMDH: 0,
   });
 
-  const [wagonTicket, setWagonTicket] = useState({
-    _id: "",
-    idTicket: "",
-    numOfWagon: 0,
-    wagon: "",
-    price: 0,
-  });
-
   const [changeState, setChangeState] = useState(false);
 
   const listTrip = useSelector((state) => state.trip.trips);
 
-  const updateWagonTicket = (idTrip, fixed_price) => {
-    dispatch(wagonTicketAction.editWagonTicket({ idTrip, fixed_price }));
+  const updateWagonTicket = (_id, fixed_price) => {
+    dispatch(wagonTicketAction.editWagonTicket({ _id, fixed_price }));
   };
 
   const handleSubmitChangeRegulation = () => {
@@ -193,7 +185,7 @@ export const Rules = () => {
             />
           </div>
           <div className="session-row">
-            <span className="title"> Hệ số khoang nằm 4 điều hòa</span>
+            <span className="title"> Hệ số khoang Nằm 4 điều hòa</span>
             <input
               type="number"
               name="coefficientNK4DH"
@@ -203,7 +195,7 @@ export const Rules = () => {
             />
           </div>
           <div className="session-row">
-            <span className="title"> Hệ số khoang nằm 6 điều hòa</span>
+            <span className="title"> Hệ số khoang Nằm 6 điều hòa</span>
             <input
               type="number"
               name="coefficientNK6DH"

@@ -24,7 +24,7 @@ export const DashBoard = (props) => {
     dispatch(AnalyticsAction.getCurrentByEnterprises());
     dispatch(AnalyticsAction.getCurrentByEnterprisesList());
     dispatch(AnalyticsAction.getAllName());
-    dispatch(AnalyticsAction.getLastOrder());
+    dispatch(AnalyticsAction.getLastOrderByDay());
   }, []);
 
   const currentDate = useSelector((state) => state.currentDate);
@@ -176,7 +176,7 @@ export const DashBoard = (props) => {
           <div className="col-5">
             <div className="card">
               <div className="card__header">
-                <h3>Hãng tàu</h3>
+                <h3>Top hãng tàu</h3>
               </div>
               <div className="card__body">
                 <Table

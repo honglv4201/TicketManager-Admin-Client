@@ -27,7 +27,7 @@ const wagonTicketAction = {
   editWagonTicket: (form) => {
     return async (dispatch) => {
       try {
-        const newForm = { ...form, idTrip: form.idTrip };
+        const newForm = { ...form, idTrip: form._id };
 
         dispatch({ type: wagonTicketConstants.EDIT_WAGON_TICKET_REQUEST });
 

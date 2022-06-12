@@ -17,7 +17,8 @@ export const UserDetails = (props) => {
     loadUserDetail();
   }, []);
 
-  const { userId } = useParams;
+  const { userId } = useParams();
+  console.log(userId);
   const loadUserDetail = () => {
     const payload = {
       params: {
@@ -27,10 +28,10 @@ export const UserDetails = (props) => {
     dispatch(UserAction.getUserDetailById(payload));
   };
   const state_userDetail = useSelector((state) => state.user.userDetail);
-  console.log(state_userDetail);
   return (
     <>
-      {state_userDetail.role === "admin" ? (
+      {state_userDetail.role === "admin" ||
+      state_userDetail.role === "steersman" ? (
         <Layout sidebar>
           <div className="persional-info-identity">
             <div>Mã nhân viên : {state_userDetail._id}</div>

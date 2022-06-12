@@ -26,6 +26,29 @@ const AnalyticsAction = {
     };
   },
 
+  getLastOrderByDay: () => {
+    return async (dispatch) => {
+      try {
+        dispatch({ type: analyticsConstants.LAST_ORDER_REQUEST });
+
+        const data = await AnalyticsApi.getLastOrderByDay();
+
+        dispatch({
+          type: analyticsConstants.LAST_ORDER_SUCCESS,
+          payload: data,
+        });
+      } catch (error) {
+        dispatch({
+          type: analyticsConstants.LAST_ORDER_FAILURE,
+          payload:
+            error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
+        });
+      }
+    };
+  },
+
   getAllName: () => {
     return async (dispatch) => {
       try {

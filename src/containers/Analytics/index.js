@@ -77,7 +77,7 @@ export const Analytics = (props) => {
     datasets: [
       {
         label: "My First Dataset",
-        data: [totalTicket, totalCanceledTicket],
+        data: [totalCanceledTicket, totalTicket],
         backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)"],
         hoverOffset: 4,
       },
@@ -148,7 +148,7 @@ export const Analytics = (props) => {
     ],
 
     options: {
-      color: ["#6ab04c", "#2980b9"],
+      color: ["#e01231"],
       chart: {
         background: "transparent",
       },
@@ -219,6 +219,8 @@ export const Analytics = (props) => {
             <option value="2020">2020</option>
             <option value="2021">2021</option>
             <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
           </select>
           {/* <Button variant="dark" onClick={filterShow} className="btnItem">
             Filter

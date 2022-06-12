@@ -22,14 +22,17 @@ export const ListTripTable = (props) => {
   const listTicket = props.listTicket;
   const listSteersman = props.listSteersman;
   const term = props.term;
+
+  const date = new Date().toISOString();
+
   const initTrip = () => {
     return {
       _id: "",
       idVehicle: {},
       idRoute: "",
-      startDate: "1945-12-31T12:00:00.000Z",
-      fixed_price: 0,
-      totalSeat: 0,
+      startDate: date,
+      fixed_price: "",
+      totalSeat: "",
       idSteersman: {},
     };
   };

@@ -35,8 +35,8 @@ export const ListRouteTable = (props) => {
       idEnterprise: "",
       startLocation: "",
       endLocation: "",
-      startTime: 0.0,
-      totalTime: 0.0,
+      startTime: "",
+      totalTime: "",
     };
   };
   const [route, setRoute] = useState(initRoute);
@@ -273,6 +273,7 @@ export const ListRouteTable = (props) => {
                   setRoute({ ...route, startTime: e.target.value });
                   checkEditData();
                 }}
+                type="Number"
               />
 
               <InputTitleLeft
@@ -283,6 +284,7 @@ export const ListRouteTable = (props) => {
                   setRoute({ ...route, totalTime: e.target.value });
                   checkEditData();
                 }}
+                type="Number"
               />
             </div>
           </div>

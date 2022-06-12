@@ -39,9 +39,9 @@ export const ListUserTable = (props) => {
     return <th key={ind}>{item}</th>;
   };
   const renderUsers = (users) => {
-    let myUers = [];
+    let myUsers = [];
     for (let user of users) {
-      myUers.push(
+      myUsers.push(
         <tr>
           <td>
             {user.firstName} {user.lastName}
@@ -51,7 +51,7 @@ export const ListUserTable = (props) => {
               ? user.profile[0].gender === "Male"
                 ? "Nam"
                 : "Nữ"
-              : ""}
+              : "Trống"}
           </td>
           <td>{user.email}</td>
           <td>{user.contactNumber}</td>
@@ -87,7 +87,7 @@ export const ListUserTable = (props) => {
         </tr>
       );
     }
-    return myUers;
+    return myUsers;
   };
   if (Object.keys(listUser).length === 0) {
     return (

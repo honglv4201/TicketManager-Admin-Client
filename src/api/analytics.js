@@ -7,6 +7,12 @@ const AnalyticsApi = {
     return data;
   },
 
+  getLastOrderByDay: async () => {
+    const { data } = await axiosIntance.get(`invoice/getAllbyDay`);
+
+    return data;
+  },
+
   getAllEnterpriseName: async () => {
     const { data } = await axiosIntance.get(`enterprise/getAllName`);
 
