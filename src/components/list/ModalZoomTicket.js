@@ -67,7 +67,7 @@ export const ModalZoomTicket = React.forwardRef((props, ref) => {
             </div>
             <div className="row2">
               <div className="colx2-left">
-                <h2>Nhà xe</h2>
+                <h2>Hãng tàu</h2>
                 <h2>Tuyến đường</h2>
                 <h2>Biển số</h2>
                 <h2>Nơi đón</h2>
@@ -85,7 +85,7 @@ export const ModalZoomTicket = React.forwardRef((props, ref) => {
                 <p>{ticketInfor.getOff}</p>
                 <p>{trip.idRoute.startTime} </p>
               </div>
-              {/* <h2>Nhà xe: {trip.idVehicle.idEnterprise.name}</h2>
+              {/* <h2>Hãng tàu: {trip.idVehicle.idEnterprise.name}</h2>
               <h2>
                 Tuyến đường: {trip.idRoute.startLocation} -{" "}
                 {trip.idRoute.endLocation}

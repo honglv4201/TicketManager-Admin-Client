@@ -19,7 +19,7 @@ export const ReportEnterpriseTable = (props) => {
   const state_report = useSelector((state) => state.ticketR.report);
 
   const header = {
-    header: ["Số thứ tự", "Nhà xe", "Số vé đặt", "Doanh thu"],
+    header: ["Số thứ tự", "Hãng tàu", "Số vé đặt", "Doanh thu"],
     body: [],
   };
   const renderReport = () => {
@@ -48,7 +48,7 @@ export const ReportEnterpriseTable = (props) => {
         <div className="col-12">
           <div className="card">
             <div className="card__header">
-              <h2>Báo cáo nhà xe</h2>
+              <h2>Báo cáo hãng tàu</h2>
               <h2 style={{ marginLeft: 30 }}>Tháng {p_month}</h2>
               <h2 style={{ marginLeft: 15 }}>Năm {p_year}</h2>
             </div>

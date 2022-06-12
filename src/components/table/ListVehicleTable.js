@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import VehicleAction from "../../actions/vehicle.actions";
@@ -26,15 +26,15 @@ export const ListVehicleTable = (props) => {
     }
     return listVehicle;
   };
-  const getAllListVehicle = () => {
-    let listVehicle = [];
-    for (let i = 0; i < prop_listVehicle.length; i++) {
-      if (prop_listVehicle[i].isActive === "yes") {
-        listVehicle.push(prop_listVehicle[i]);
-      }
-    }
-    return listVehicle;
-  };
+  // const getAllListVehicle = () => {
+  //   let listVehicle = [];
+  //   for (let i = 0; i < prop_listVehicle.length; i++) {
+  //     if (prop_listVehicle[i].isActive === "yes") {
+  //       listVehicle.push(prop_listVehicle[i]);
+  //     }
+  //   }
+  //   return listVehicle;
+  // };
   const getListEnterprise = () => {
     let list = [];
     for (let i = 0; i < prop_listEnterprise.enterprises.length; i++) {
@@ -63,6 +63,10 @@ export const ListVehicleTable = (props) => {
   const [modalTitle, setModalTitle] = useState();
   const [editData, setEditData] = useState(false);
 
+  // useEffect(() => {
+  //   setVehicle(initVehicle);
+  // }, []);
+
   const checkEditData = () => {
     if (vehicle.typeOfSpeed && vehicle.numPlate && vehicle.idTrain) {
       setEditData(true);
@@ -83,7 +87,7 @@ export const ListVehicleTable = (props) => {
     setModalShow(true);
   };
   const handleModalSave = () => {
-    const form = vehicle;
+    const form = { ...vehicle, idEnterprise: props.idEnterprise };
     if (modalFlag === "Add") {
       delete form._id;
       dispatch(VehicleAction.addVehicle(form));
@@ -263,8 +267,8 @@ export const ListVehicleTable = (props) => {
           <div className="add-modal__body">
             <div className="input-enterprise-name">
               <InputTitleLeft
-                title="Nhà xe"
-                value={vehicle.nameEnterprise}
+                title="Hãng tàu"
+                value={props.nameEnterprise}
                 placeholder={``}
               />
 

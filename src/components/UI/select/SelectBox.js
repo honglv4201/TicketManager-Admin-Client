@@ -47,7 +47,6 @@ export const SelectBox = (props) => {
                 <option key={option._id} value={option._id}>
                   SH: {option.idTrain} - BS: {option.numPlate} - SG:{" "}
                   {countTotalSeat(option._id)}
-                  {countTotalSeat(option._id)}
                 </option>
               );
             } else if (props.type === "SteersmanSelect") {
@@ -101,7 +100,7 @@ export const SelectBox = (props) => {
 
         {props.type === "speed" && (
           <Fragment>
-            <option value="Fast">Fast</option>{" "}
+            <option value="Fast">Fast</option>
             <option value="Slow">Slow</option>
           </Fragment>
         )}
