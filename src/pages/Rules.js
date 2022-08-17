@@ -12,6 +12,7 @@ export const Rules = () => {
   const dispatch = useDispatch();
 
   const logout = () => {
+    localStorage.clear();
     dispatch(AuthAction.signout());
   };
 

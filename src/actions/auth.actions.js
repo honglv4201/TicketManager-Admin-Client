@@ -108,6 +108,7 @@ const AuthAction = {
       dispatch({ type: authConstants.LOGOUT_REQUEST });
 
       const res = await AuthApi.signout();
+      localStorage.clear();
 
       if (res.status === 200) {
         localStorage.clear();

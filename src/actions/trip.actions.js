@@ -90,10 +90,12 @@ const TripAction = {
           });
         }
       } catch (error) {
-        dispatch({
-          type: tripConstants.GET_ALL_TRIP_FAILURE,
-          payload: { error: res.data.error },
-        });
+        console.log(error);
+        // if(error)
+        // dispatch({
+        //   type: tripConstants.GET_ALL_TRIP_FAILURE,
+        //   payload: { error: res.data.error || "err" },
+        // });
       }
     };
   },
